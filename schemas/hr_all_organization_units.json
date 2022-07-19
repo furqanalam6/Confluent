@@ -8,7 +8,7 @@
       "type": {
         "type": "bytes",
         "scale": 0,
-        "precision": 64,
+        "precision": 38,
         "connect.version": 1,
         "connect.parameters": {
           "scale": "0"
@@ -22,7 +22,7 @@
       "type": {
         "type": "bytes",
         "scale": 0,
-        "precision": 64,
+        "precision": 38,
         "connect.version": 1,
         "connect.parameters": {
           "scale": "0"
@@ -38,7 +38,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 64,
+          "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -56,7 +56,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 64,
+          "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -124,7 +124,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 64,
+          "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -142,7 +142,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 64,
+          "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -160,7 +160,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 64,
+          "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -372,7 +372,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 64,
+          "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -390,7 +390,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 64,
+          "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -408,7 +408,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 64,
+          "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -439,7 +439,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 64,
+          "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -457,7 +457,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 64,
+          "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -555,7 +555,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 64,
+          "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
