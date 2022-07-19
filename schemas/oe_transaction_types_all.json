@@ -4,46 +4,12 @@
   "namespace": "io.confluent.connect.avro",
   "fields": [
     {
-      "name": "TRANSACTION_TYPE_ID",
-      "type": {
-        "type": "bytes",
-        "scale": 0,
-        "precision": 38,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "0"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
-    },
-    {
       "name": "ATTRIBUTE2",
-      "type": {
-        "type": "bytes",
-        "scale": 0,
-        "precision": 38,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "0"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
+      "type": "string"
     },
     {
       "name": "ATTRIBUTE6",
-      "type": {
-        "type": "bytes",
-        "scale": 0,
-        "precision": 38,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "0"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
+      "type": "string"
     }
   ]
 }
