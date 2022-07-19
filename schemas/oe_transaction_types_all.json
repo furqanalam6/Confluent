@@ -5,18 +5,14 @@
   "fields": [
     {
       "name": "ATTRIBUTE2",
-      "type": [
-        "null",
-        "string"
-      ],
+      "type": "string"
+      ,
       "default": null
     },
     {
       "name": "ATTRIBUTE6",
-      "type": [
-        "null",
-        "string"
-      ],
+      "type": "string"
+      ,
       "default": null
     }
   ]
