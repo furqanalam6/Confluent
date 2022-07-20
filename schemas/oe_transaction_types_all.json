@@ -1,9 +1,11 @@
 
 {
   "type": "record",
-  "name": "Person",
-  "namespace": "com.sparkbyexamples",
+  "name": "ConnectDefault",
+  "namespace": "io.confluent.connect.avro",
   "fields": [
-    {"name": "TRANSACTION_TYPE_CODE","type": ["int", "null"]}
+    {"name": "TRANSACTION_TYPE_ID","type": ["decimal", "null"]},
+    {"name": "ATTRIBUTE2","type": ["string", "null"]},
+    {"name": "ATTRIBUTE2","type": ["string", "null"]}
   ]
 }
