@@ -12,7 +12,7 @@
         "logicalType": "date"
       }
     },
-    },
+    
     {
       "name": "TRANSACTION_TYPE_CODE",
       "type": "string"
