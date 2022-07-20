@@ -6,7 +6,7 @@
     {
       "name": "TRANSACTION_TYPE_CODE",
       "type": "string"
-    }
+    },
     {
       "name": "ATTRIBUTE6",
       "type": "string"
