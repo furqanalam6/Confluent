@@ -6,6 +6,6 @@
   "fields": [
     {"name": "TRANSACTION_TYPE_ID","type": ["string", "null"]},
     {"name": "ATTRIBUTE2","type": ["string", "null"]},
-    {"name": "ATTRIBUTE2","type": ["string", "null"]}
+    {"name": "ATTRIBUTE6","type": ["string", "null"]}
   ]
 }
