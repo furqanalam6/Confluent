@@ -28,7 +28,7 @@ with open('/opt/Schemas/schemas/oe_transaction_types_all.json','r') as f:
 ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), \
 schema_oe_all).alias("person")) \
-        .select("person.*").filter("ot.ATTRIBUTE6 == 'Saleco Retail'")
+        .select("person.ATTRIBUTE2", "person.TRANSACTION_TYPE_CODE","person.ATTRIBUTE4","person.ATTRIBUTE6",)
 
 
 query = ot \

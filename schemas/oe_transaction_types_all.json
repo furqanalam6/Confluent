@@ -8,6 +8,10 @@
       "type": "string"
     },
     {
+      "name": "ATTRIBUTE4",
+      "type": "string"
+    },
+    {
       "name": "ATTRIBUTE6",
       "type": "string"
     },
