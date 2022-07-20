@@ -5,7 +5,17 @@
   "fields": [
     {
       "name": "TRANSACTION_TYPE_ID",
-      "type": "decimal"
+      "type": {
+        "type": ["bytes", "null"],
+        "scale": 18,
+        "precision": 38,
+        "connect.version": 1,
+        "connect.parameters": {
+          "scale": "18"
+        },
+        "connect.name": "org.apache.kafka.connect.data.Decimal",
+        "logicalType": "decimal"
+      }
     },
     {
       "name": "LANGUAGE",
