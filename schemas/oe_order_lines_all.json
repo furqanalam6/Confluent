@@ -8,11 +8,11 @@
       "name": "HEADER_ID",
       "type": {
         "type": "bytes",
-        "scale": 40,
-        "precision": 15,
+        "scale": 127,
+        "precision": 64,
         "connect.version": 1,
         "connect.parameters": {
-          "scale": "40"
+          "scale": "127"
         },
         "connect.name": "org.apache.kafka.connect.data.Decimal",
         "logicalType": "decimal"

@@ -14,7 +14,7 @@
           "scale": "127"
         },
         "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
+        "logicalType": ["decimal", "true"]
       }
     },
     {
