@@ -8,7 +8,7 @@
       "type": {
         "type": "bytes",
         "scale": 18,
-        "precision": 38,
+        "precision": 15,
         "connect.version": 1,
         "connect.parameters": {
           "scale": "18"
