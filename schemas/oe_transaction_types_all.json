@@ -5,6 +5,7 @@
   "namespace": "io.confluent.connect.avro",
   "fields": [
     {"name": "TRANSACTION_TYPE_ID","type": ["int", "null"]},
-    {"name": "ATTRIBUTE2","type": ["null", "string"]}
+    {"name": "ATTRIBUTE2","type": ["null", "string"]},
+    {"name": "ATTRIBUTE6","type": ["null", "string"]}
   ]
 }
