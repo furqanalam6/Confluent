@@ -7,11 +7,11 @@
       "name": "TRANSACTION_TYPE_ID",
       "type": {
         "type": "bytes",
-        "scale": 10,
+        "scale": 50,
         "precision": 38,
         "connect.version": 1,
         "connect.parameters": {
-          "scale": "10"
+          "scale": "50"
         },
         "connect.name": "org.apache.kafka.connect.data.Decimal",
         "logicalType": "int"
@@ -64,11 +64,11 @@
       "name": "CREATED_BY",
       "type": {
         "type": "bytes",
-        "scale": 10,
+        "scale": 50,
         "precision": 38,
         "connect.version": 1,
         "connect.parameters": {
-          "scale": "10"
+          "scale": "50"
         },
         "connect.name": "org.apache.kafka.connect.data.Decimal",
         "logicalType": "decimal"
@@ -87,11 +87,11 @@
       "name": "LAST_UPDATED_BY",
       "type": {
         "type": "bytes",
-        "scale": 10,
+        "scale": 50,
         "precision": 38,
         "connect.version": 1,
         "connect.parameters": {
-          "scale": "10"
+          "scale": "50"
         },
         "connect.name": "org.apache.kafka.connect.data.Decimal",
         "logicalType": "decimal"
@@ -103,11 +103,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -121,11 +121,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -139,11 +139,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -157,11 +157,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -191,11 +191,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -209,11 +209,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -227,11 +227,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -245,11 +245,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -263,11 +263,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -289,11 +289,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -379,11 +379,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -405,11 +405,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -431,11 +431,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -449,11 +449,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -483,11 +483,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -645,11 +645,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -663,11 +663,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -689,11 +689,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -707,11 +707,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -725,11 +725,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -783,11 +783,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
@@ -801,11 +801,11 @@
         "null",
         {
           "type": "bytes",
-          "scale": 10,
+          "scale": 50,
           "precision": 38,
           "connect.version": 1,
           "connect.parameters": {
-            "scale": "10"
+            "scale": "50"
           },
           "connect.name": "org.apache.kafka.connect.data.Decimal",
           "logicalType": "decimal"
