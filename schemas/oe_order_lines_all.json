@@ -5,9 +5,12 @@
   "fields": [
 
     {
-      "name": "HEADER_ID",
-      "type": "double"
+      "name": "FLOW_STATUS_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     }
-
   ]
 }
