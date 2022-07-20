@@ -1,25 +1,9 @@
+
 {
   "type": "record",
-  "name": "ConnectDefault",
-  "namespace": "io.confluent.connect.avro",
+  "name": "Person",
+  "namespace": "com.sparkbyexamples",
   "fields": [
-    {
-      "name": "TRANSACTION_TYPE_ID",
-      "type": {
-        "type": "bytes",
-        "scale": 2,
-        "precision": 38,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "2"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
-    },
-    {
-      "name": "TRANSACTION_TYPE_CODE",
-      "type": "string"
-    }
+    {"name": "TRANSACTION_TYPE_CODE","type": ["int", "null"]}
   ]
 }
