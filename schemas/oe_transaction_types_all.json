@@ -4,12 +4,13 @@
   "namespace": "io.confluent.connect.avro",
   "fields": [
     {
-      "name": "TRANSACTION_TYPE_CODE",
+      "name": "ATTRIBUTE6",
       "type": "string"
     },
     {
-      "name": "ATTRIBUTE6",
+      "name": "TRANSACTION_TYPE_CODE",
       "type": "string"
     }
+
   ]
 }
