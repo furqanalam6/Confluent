@@ -7,11 +7,11 @@
       "name": "TRANSACTION_TYPE_ID",
       "type": {
         "type": "bytes",
-        "scale": 18,
+        "scale": 10,
         "precision": 15,
         "connect.version": 1,
         "connect.parameters": {
-          "scale": "18"
+          "scale": "10"
         },
         "connect.name": "org.apache.kafka.connect.data.Decimal",
         "logicalType": "decimal"
