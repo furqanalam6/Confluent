@@ -4,6 +4,10 @@
   "namespace": "io.confluent.connect.avro",
   "fields": [
     {
+      "name": "ATTRIBUTE2",
+      "type": "string"
+    },
+    {
       "name": "ATTRIBUTE6",
       "type": "string"
     },
