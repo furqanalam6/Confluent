@@ -4,21 +4,894 @@
   "namespace": "io.confluent.connect.avro",
   "fields": [
     {
-      "name": "ATTRIBUTE2",
-      "type": "string"
-    },
-    {
-      "name": "ATTRIBUTE4",
-      "type": "string"
-    },
-    {
-      "name": "ATTRIBUTE6",
-      "type": "string"
+      "name": "TRANSACTION_TYPE_ID",
+      "type": {
+        "type": "bytes",
+        "scale": 127,
+        "precision": 64,
+        "connect.version": 1,
+        "connect.parameters": {
+          "scale": "127"
+        },
+        "connect.name": "org.apache.kafka.connect.data.Decimal",
+        "logicalType": "decimal"
+      }
     },
     {
       "name": "TRANSACTION_TYPE_CODE",
       "type": "string"
+    },
+    {
+      "name": "ORDER_CATEGORY_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "START_DATE_ACTIVE",
+      "type": {
+        "type": "int",
+        "connect.version": 1,
+        "connect.name": "org.apache.kafka.connect.data.Date",
+        "logicalType": "date"
+      }
+    },
+    {
+      "name": "END_DATE_ACTIVE",
+      "type": [
+        "null",
+        {
+          "type": "int",
+          "connect.version": 1,
+          "connect.name": "org.apache.kafka.connect.data.Date",
+          "logicalType": "date"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "CREATION_DATE",
+      "type": {
+        "type": "int",
+        "connect.version": 1,
+        "connect.name": "org.apache.kafka.connect.data.Date",
+        "logicalType": "date"
+      }
+    },
+    {
+      "name": "CREATED_BY",
+      "type": {
+        "type": "bytes",
+        "scale": 127,
+        "precision": 64,
+        "connect.version": 1,
+        "connect.parameters": {
+          "scale": "127"
+        },
+        "connect.name": "org.apache.kafka.connect.data.Decimal",
+        "logicalType": "decimal"
+      }
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "type": {
+        "type": "int",
+        "connect.version": 1,
+        "connect.name": "org.apache.kafka.connect.data.Date",
+        "logicalType": "date"
+      }
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "type": {
+        "type": "bytes",
+        "scale": 127,
+        "precision": 64,
+        "connect.version": 1,
+        "connect.parameters": {
+          "scale": "127"
+        },
+        "connect.name": "org.apache.kafka.connect.data.Decimal",
+        "logicalType": "decimal"
+      }
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "PROGRAM_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "REQUEST_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "CURRENCY_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "CONVERSION_TYPE_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "CUST_TRX_TYPE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "COST_OF_GOODS_SOLD_ACCOUNT",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "ENTRY_CREDIT_CHECK_RULE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "SHIPPING_CREDIT_CHECK_RULE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "PRICE_LIST_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "ENFORCE_LINE_PRICES_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "WAREHOUSE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "DEMAND_CLASS_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SHIPMENT_PRIORITY_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SHIPPING_METHOD_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "FREIGHT_TERMS_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "FOB_POINT_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SHIP_SOURCE_TYPE_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "AGREEMENT_TYPE_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "AGREEMENT_REQUIRED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PO_REQUIRED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "INVOICING_RULE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "INVOICING_CREDIT_METHOD_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ACCOUNTING_RULE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "ACCOUNTING_CREDIT_METHOD_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "INVOICE_SOURCE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "NON_DELIVERY_INVOICE_SOURCE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "INSPECTION_REQUIRED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEPOT_REPAIR_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ORG_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "AUTO_SCHEDULING_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SCHEDULING_LEVEL_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "CONTEXT",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE1",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE2",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE3",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE4",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE5",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE6",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE7",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE8",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE9",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE10",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE11",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE12",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE13",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE14",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE15",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFAULT_INBOUND_LINE_TYPE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFAULT_OUTBOUND_LINE_TYPE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "TAX_CALCULATION_EVENT_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PICKING_CREDIT_CHECK_RULE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "PACKING_CREDIT_CHECK_RULE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "MIN_MARGIN_PERCENT",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "SALES_DOCUMENT_TYPE_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFAULT_LINE_SET_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFAULT_FULFILLMENT_SET",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEF_TRANSACTION_PHASE_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "QUOTE_NUM_AS_ORD_NUM_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "LAYOUT_TEMPLATE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "CONTRACT_TEMPLATE_ID",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 127,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "127"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "CREDIT_CARD_REV_REAUTH_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "USE_AME_APPROVAL",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "BILL_ONLY",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "table",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "scn",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "op_type",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "op_ts",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "current_ts",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "row_id",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "username",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     }
-
   ]
 }
