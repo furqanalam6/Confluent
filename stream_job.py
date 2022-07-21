@@ -8,7 +8,7 @@ from pyspark.sql import DataFrameWriter
 
 spark = SparkSession \
     .builder \
-    .config("spark.driver.extraClassPath","/opt/bitnami/spark/jars/mssql-jdbc-6.4.0.jre8.jar")\
+    .config("spark.driver.extraClassPath","/opt/Confluent/bitnami/spark/jars/mssql-jdbc-6.4.0.jre8.jar")\
     .appName("STREAM") \
     .getOrCreate()
 spark.sparkContext.setLogLevel('ERROR')
@@ -70,25 +70,25 @@ OE_ORDER_LINES_ALL = spark \
     .option("startingOffsets", "earliest") \
     .load()
 
-with open('/opt/schemas/hz_parties.json','r') as f:
+with open('/opt/Confluent/schemas/hz_parties.json','r') as f:
   schema_HZP = f.read()
 
-with open('/opt/schemas/hz_cust_accounts.json','r') as f:
+with open('/opt/Confluent/schemas/hz_cust_accounts.json','r') as f:
   schema_HZC = f.read()
 
-with open('/opt/schemas/hr_all_organization_units.json','r') as f:
+with open('/opt/Confluent/schemas/hr_all_organization_units.json','r') as f:
   schema_hr = f.read()
 
-with open('/opt/schemas/oe_transaction_types_all.json','r') as f:
+with open('/opt/Confluent/schemas/oe_transaction_types_all.json','r') as f:
   schema_oe_all = f.read()
 
-with open('/opt/schemas/oe_transaction_types_tl.json','r') as f:
+with open('/opt/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
   schema_oe_tl = f.read()
 
-with open('/opt/schemas/oe_order_headers_all.json','r') as f:
+with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
   schema_oe_headers_all = f.read()
 
-with open('/opt/schemas/oe_order_lines_all.json','r') as f:
+with open('/opt/Confluent/schemas/oe_order_lines_all.json','r') as f:
   schema_oe_lines_all = f.read()
 
 hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
