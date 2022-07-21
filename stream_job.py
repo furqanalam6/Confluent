@@ -70,25 +70,25 @@ OE_ORDER_LINES_ALL = spark \
     .option("startingOffsets", "earliest") \
     .load()
 
-with open('/home/jobs/Confluent/schemas/hz_parties.json','r') as f:
+with open('/opt/schemas/hz_parties.json','r') as f:
   schema_HZP = f.read()
 
-with open('/home/jobs/Confluent/schemas/hz_cust_accounts.json','r') as f:
+with open('/opt/schemas/hz_cust_accounts.json','r') as f:
   schema_HZC = f.read()
 
-with open('/home/jobs/Confluent/schemas/hr_all_organization_units.json','r') as f:
+with open('/opt/schemas/hr_all_organization_units.json','r') as f:
   schema_hr = f.read()
 
-with open('/home/jobs/Confluent/schemas/oe_transaction_types_all.json','r') as f:
+with open('/opt/schemas/oe_transaction_types_all.json','r') as f:
   schema_oe_all = f.read()
 
-with open('/home/jobs/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
+with open('/opt/schemas/oe_transaction_types_tl.json','r') as f:
   schema_oe_tl = f.read()
 
-with open('/home/jobs/Confluent/schemas/oe_order_headers_all.json','r') as f:
+with open('/opt/schemas/oe_order_headers_all.json','r') as f:
   schema_oe_headers_all = f.read()
 
-with open('/home/jobs/Confluent/schemas/oe_order_lines_all.json','r') as f:
+with open('/opt/schemas/oe_order_lines_all.json','r') as f:
   schema_oe_lines_all = f.read()
 
 hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
@@ -111,24 +111,28 @@ ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
 ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
         .select("ottt.TRANSACTION_TYPE_ID", "ottt.LANGUAGE") \
-            .filter("ottt.LANGUAGE = 'US'")
+            .filter("ottt.LANGUAGE = 'US'").filter("ottt.TRANSACTION_TYPE_ID == 1226.0")
 
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
         .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
-            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE")
+            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE","ooh.FLOW_STATUS_CODE").filter("ooh.FLOW_STATUS_CODE == 'CLOSED'")
+            # .filter("ooh.HEADER_ID == 1669.0")
+            # .filter( "ooh.ORDERED_DATE = '2022-01-01 09:23:34'")
+
+            # .filter("ooh.HEADER_ID == 1669")
 
 ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
-        .select("ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
-            ,  "ool.UNIT_LIST_PRICE", "ool.INVENTORY_ITEM_ID" \
-                , "ool.SHIP_FROM_ORG_ID", "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE", "ool.LAST_UPDATE_DATE") \
-                    .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
+        .select("ool.FLOW_STATUS_CODE").filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
+        # ("ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
+        #     ,  "ool.UNIT_LIST_PRICE", "ool.INVENTORY_ITEM_ID" \
+        #         , "ool.SHIP_FROM_ORG_ID", "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE", "ool.LAST_UPDATE_DATE") \
+        #             .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 
 
 # Join
 query = ooh \
     .writeStream \
     .format("console") \
-    .option("mode", "update") \
     .start().awaitTermination()
