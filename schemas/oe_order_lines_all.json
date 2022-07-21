@@ -31,6 +31,14 @@
         "connect.name": "org.apache.kafka.connect.data.Date",
         "logicalType": "date"
       }
+    },
+    {
+      "name": "SHIP_FROM_ORG_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
     }
   ]
 }
