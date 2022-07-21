@@ -26,7 +26,7 @@
       "type": "string"
     },
     {
-      "name": "ORDERED_QUANTITY2",
+      "name": "ORDERED_QUANTITY",
       "type": [
         "null",
         "double"
