@@ -24,6 +24,14 @@
       "default": null
     },
     {
+      "name": "SHIP_FROM_ORG_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
       "name": "LAST_UPDATE_DATE",
       "type": {
         "type": "int",
@@ -33,20 +41,8 @@
       }
     },
     {
-      "name": "SHIP_FROM_ORG_ID",
-      "type": [
-        "null",
-        "double"
-      ],
-      "default": null
-    },
-    {
       "name": "INVENTORY_ITEM_ID",
       "type": "double"
-    },
-    {
-      "name": "LINE_CATEGORY_CODE",
-      "type": "string"
     }
   ]
 }
