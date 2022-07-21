@@ -45,12 +45,12 @@
       "type": "double"
     },
     {
-      "name": "UNIT_LIST_PRICE",
-      "type": [
-        "null",
-        "double"
-      ],
-      "default": null
+      "name": "LINE_CATEGORY_CODE",
+      "type": "string"
+    },
+    {
+      "name": "INVENTORY_ITEM_ID",
+      "type": "double"
     }
   ]
 }
