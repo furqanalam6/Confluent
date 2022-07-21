@@ -11,6 +11,19 @@
         "string"
       ],
       "default": null
+    },
+    {
+      "name": "HEADER_ID",
+      "type": "double"
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "type": {
+        "type": "int",
+        "connect.version": 1,
+        "connect.name": "org.apache.kafka.connect.data.Date",
+        "logicalType": "date"
+      }
     }
   ]
 }
