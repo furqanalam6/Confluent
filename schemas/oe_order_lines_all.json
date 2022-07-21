@@ -39,6 +39,10 @@
         "double"
       ],
       "default": null
+    },
+    {
+      "name": "INVENTORY_ITEM_ID",
+      "type": "double"
     }
   ]
 }
