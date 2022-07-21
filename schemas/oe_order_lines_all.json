@@ -6,6 +6,14 @@
     {
       "name": "HEADER_ID",
       "type": "double"
-    }
+    },
+    {
+      "name": "ORDERED_ITEM",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
   ]
 }
