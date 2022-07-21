@@ -3,9 +3,60 @@
   "name": "ConnectDefault",
   "namespace": "io.confluent.connect.avro",
   "fields": [
-
     {
-      "name": "FLOW_STATUS_CODE",
+      "name": "CREATION_DATE",
+      "type": {
+        "type": "int",
+        "connect.version": 1,
+        "connect.name": "org.apache.kafka.connect.data.Date",
+        "logicalType": "date"
+      }
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "type": {
+        "type": "int",
+        "connect.version": 1,
+        "connect.name": "org.apache.kafka.connect.data.Date",
+        "logicalType": "date"
+      }
+    },
+    {
+      "name": "LINE_CATEGORY_CODE",
+      "type": "string"
+    },
+    {
+      "name": "ORDERED_QUANTITY2",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+  
+    {
+      "name": "UNIT_LIST_PRICE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+  
+    {
+      "name": "INVENTORY_ITEM_ID",
+      "type": "double"
+    },
+    {
+      "name": "SHIP_FROM_ORG_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ORDERED_ITEM",
       "type": [
         "null",
         "string"
@@ -17,13 +68,12 @@
       "type": "double"
     },
     {
-      "name": "LAST_UPDATE_DATE",
-      "type": {
-        "type": "int",
-        "connect.version": 1,
-        "connect.name": "org.apache.kafka.connect.data.Date",
-        "logicalType": "date"
-      }
+      "name": "FLOW_STATUS_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     }
   ]
 }
