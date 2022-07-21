@@ -43,6 +43,14 @@
     {
       "name": "INVENTORY_ITEM_ID",
       "type": "double"
+    },
+    {
+      "name": "UNIT_LIST_PRICE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
     }
   ]
 }
