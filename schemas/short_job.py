@@ -14,27 +14,24 @@ spark = SparkSession \
 
 spark.sparkContext.setLogLevel('ERROR')
 
-OE_ORDER_LINES_ALL = spark \
+OE_ORDER_HEADERS_ALL = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.ONT.OE_ORDER_LINES_ALL") \
+    .option("subscribe", "EBSPRE.ONT.OE_ORDER_HEADERS_ALL") \
     .option("startingOffsets", "earliest") \
     .load()
 
-with open('/opt/Schemas/schemas/oe_order_lines_all.json','r') as f:
-  schema_oe_lines_all = f.read()
+with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
+  schema_oe_headers_all = f.read()
 
-ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
-    .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
-        .select("ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
-            ,  "ool.UNIT_LIST_PRICE", "ool.INVENTORY_ITEM_ID" \
-                , "ool.SHIP_FROM_ORG_ID", "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE") \
-                    .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
+ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
+    .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
+        .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
+            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE","ooh.FLOW_STATUS_CODE").filter("ooh.FLOW_STATUS_CODE == 'CLOSED'")
 
-query = ool \
+query = ooh \
     .writeStream \
     .format("console") \
-    .option("mode", "update") \
     .start().awaitTermination()
 
