@@ -37,13 +37,6 @@ HR_ALL_ORGANIZATION_UNITS = spark \
     .option("startingOffsets", "earliest") \
     .load()
 
-MTL_SYSTEM_ITEMS_B = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.INV.MTL_SYSTEM_ITEMS_B") \
-    .option("startingOffsets", "earliest") \
-    .load()
 
 OE_TRANSACTION_TYPES_ALL = spark \
     .readStream \
@@ -77,72 +70,56 @@ OE_ORDER_LINES_ALL = spark \
     .option("startingOffsets", "earliest") \
     .load()
 
-with open('/opt/Schemas/schemas/hz_parties.json','r') as f:
+with open('/home/jobs/Confluent/schemas/hz_parties.json','r') as f:
   schema_HZP = f.read()
 
-with open('/opt/Schemas/schemas/hz_cust_accounts.json','r') as f:
+with open('/home/jobs/Confluent/schemas/hz_cust_accounts.json','r') as f:
   schema_HZC = f.read()
 
-with open('/opt/Schemas/schemas/hr_all_organization_units.json','r') as f:
+with open('/home/jobs/Confluent/schemas/hr_all_organization_units.json','r') as f:
   schema_hr = f.read()
 
-with open('/opt/Schemas/schemas/mtl_system_items_b.json','r') as f:
-  schema_inv = f.read()
 
-with open('/opt/Schemas/schemas/oe_transaction_types_all.json','r') as f:
+with open('/home/jobs/Confluent/schemas/oe_transaction_types_all.json','r') as f:
   schema_oe_all = f.read()
 
-with open('/opt/Schemas/schemas/oe_transaction_types_tl.json','r') as f:
+with open('/home/jobs/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
   schema_oe_tl = f.read()
 
-with open('/opt/Schemas/schemas/oe_order_headers_all.json','r') as f:
+with open('/home/jobs/Confluent/schemas/oe_order_headers_all.json','r') as f:
   schema_oe_headers_all = f.read()
 
-with open('/opt/Schemas/schemas/oe_order_lines_all.json','r') as f:
+with open('/home/jobs/Confluent/schemas/oe_order_lines_all.json','r') as f:
   schema_oe_lines_all = f.read()
 
 hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_HZP).alias("hp")) \
-       .select("hp.PARTY_ID", "hp.PARTY_NAME")
+       .select("hp.*")
 
 hca = HZ_CUST_ACCOUNTS.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_HZC).alias("hca")) \
-      .select("hca.PARTY_ID", "hca.CUST_ACCOUNT_ID")
+      .select("hca.*")
 
 haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_hr).alias("haou")) \
-        .select("haou.LOCATION_ID", "haou.BUSINESS_GROUP_ID", "haou.ORGANIZATION_ID") \
-            .filter("haou.BUSINESS_GROUP_ID = 101")
+        .select("haou.*")
 
-inv = MTL_SYSTEM_ITEMS_B.selectExpr("substring(value, 6) as value") \
-    .select(from_avro(col("value"), schema_inv).alias("inv")) \
-        .select("inv.DESCRIPTION", "inv.SEGMENT1", "inv.ORGANIZATION_ID") \
-            .filter("inv.ORGANIZATION_ID = 105")
 
 ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_all).alias("ot")) \
-        .select("ot.ATTRIBUTE6", "ot.ATTRIBUTE2", "ot.TRANSACTION_TYPE_ID")
+        .select("ot.*")
 
 ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
-        .select("ottt.TRANSACTION_TYPE_ID", "ottt.LANGUAGE") \
-            .filter("ottt.LANGUAGE = 'US'")
+        .select("ottt.*")
 
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
-        .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
-            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE")
-
-
+        .select("ooh.*")
 
 ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
-        .select("ool.*").filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
-        
-        , "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
-            ,  "ool.UNIT_LIST_PRICE", "ool.INVENTORY_ITEM_ID" \
-                , "ool.SHIP_FROM_ORG_ID", "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE", "ool.LAST_UPDATE_DATE") \
-                    .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
+        .select("ool.*")
 
 
 
@@ -158,7 +135,7 @@ joining_result = ooh.join(ool, "HEADER_ID") \
                     .join(hp, hca["party_id"] == hp["party_id"]) \
                             .join(inv, ool["ordered_item"] == inv["segment1"])
 
-query = ool \
+query = ooh \
     .writeStream \
     .format("console") \
     .option("mode", "update") \
