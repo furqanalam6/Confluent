@@ -28,7 +28,7 @@ with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
         .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
-            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE","ooh.FLOW_STATUS_CODE").filter("ooh.FLOW_STATUS_CODE == 'CLOSED'")
+            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE","ooh.FLOW_STATUS_CODE")
 
 query = ooh \
     .writeStream \
