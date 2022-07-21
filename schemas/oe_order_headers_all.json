@@ -43,6 +43,11 @@
         "double"
       ],
       "default": null
+    },
+    {
+      "name": "ORDER_TYPE_ID",
+      "type": "double"
     }
+
   ]
 }
