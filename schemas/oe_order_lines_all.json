@@ -43,6 +43,10 @@
     {
       "name": "INVENTORY_ITEM_ID",
       "type": "double"
+    },
+    {
+      "name": "LINE_CATEGORY_CODE",
+      "type": "string"
     }
   ]
 }
