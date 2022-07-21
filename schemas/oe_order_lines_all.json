@@ -14,6 +14,23 @@
         "string"
       ],
       "default": null
+    },  
+    {
+      "name": "FLOW_STATUS_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "type": {
+        "type": "int",
+        "connect.version": 1,
+        "connect.name": "org.apache.kafka.connect.data.Date",
+        "logicalType": "date"
+      }
     }
   ]
 }
