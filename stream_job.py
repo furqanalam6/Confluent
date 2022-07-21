@@ -1,9 +1,9 @@
-from pyspark.sql import {SparkSession, SaveMode, Row, DataFrame}
+from pyspark.sql import SparkSession, SaveMode, Row, DataFrame
 from pyspark.sql.avro.functions import from_avro
 from pyspark.sql.functions import col, expr
 # from pyspark.sql.functions import *
 # from pyspark.sql.types import *
-from pyspark.sql import DataFrameWriter
+# from pyspark.sql import DataFrameWriter
 # from pyspark.sql.functions import expr
 
 spark = SparkSession \
