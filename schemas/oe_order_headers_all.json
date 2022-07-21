@@ -4,15 +4,7 @@
   "namespace": "io.confluent.connect.avro",
   "fields": [
     {
-      "name": "HEADER_ID",
-      "type": "double"
-    },
-    {
-      "name": "ORDER_TYPE_ID",
-      "type": "double"
-    },
-    {
-      "name": "SHIP_FROM_ORG_ID",
+      "name": "SOLD_TO_ORG_ID",
       "type": [
         "null",
         "double"
@@ -20,7 +12,11 @@
       "default": null
     },
     {
-      "name": "SHIP_TO_ORG_ID",
+      "name": "HEADER_ID",
+      "type": "double"
+    },
+    {
+      "name": "ORG_ID",
       "type": [
         "null",
         "double"
@@ -39,6 +35,14 @@
         }
       ],
       "default": null
+    },
+    {
+      "name": "SHIP_FROM_ORG_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
     }
-    ]
+  ]
 }
