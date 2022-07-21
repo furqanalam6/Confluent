@@ -27,11 +27,11 @@ with open('/opt/Schemas/schemas/oe_order_lines_all.json','r') as f:
 
 ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
-        .select("ool.*")
+        .select("ool.ORDERED_ITEM")
         
         # , "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
         #     ,  "ool.UNIT_LIST_PRICE", "ool.INVENTORY_ITEM_ID" \
-        #         , "ool.SHIP_FROM_ORG_ID", "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE", "ool.LAST_UPDATE_DATE") \
+        #         , "ool.SHIP_FROM_ORG_ID", "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE") \
         #             .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 
 query = ool \
