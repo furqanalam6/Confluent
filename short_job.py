@@ -53,7 +53,7 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 
 #set variable to be used to connect the database
 database = "TestDB"
-table = "headers"
+table = "dbo.PARTY"
 user = "SA"
 password  = "MhffPOC2022"
 db_target_url = "jdbc:sqlserver://10.92.26.184:1433;TestDB"
