@@ -127,7 +127,7 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 
 ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
-        .select("ool.FLOW_STATUS_CODE") \
+        .select("ool.HEADER_ID", "ool.FLOW_STATUS_CODE") \
                     .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 
 
@@ -137,7 +137,7 @@ joining_result = ooh.join(ool, "HEADER_ID") \
         .join(ottt, ot["TRANSACTION_TYPE_ID"] == ottt["TRANSACTION_TYPE_ID"]) \
             .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
-                    .join(hp, hca["party_id"] == hp["party_id"])
+                    .join(hp, hca["party_id"] == hp["party_id"]).select("ooh.HEADER_ID")
 
 # query = ooh \
 #     .writeStream \
