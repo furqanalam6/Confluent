@@ -109,7 +109,7 @@ haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
 
 ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_all).alias("ot")) \
-        .select("ot.ATTRIBUTE2", "ot.ATTRIBUTE6")
+        .select("ot.TRANSACTION_TYPE_ID", "ot.ATTRIBUTE2", "ot.ATTRIBUTE6")
 
 ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
@@ -135,7 +135,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 # ooh.printSchema()
 
 # Join
-# joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") \
+joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") 
 
 # hca.join(ooh, func.round(hca["CUST_ACCOUNT_ID"]) == func.round(ooh["SOLD_TO_ORG_ID"])) \
 
