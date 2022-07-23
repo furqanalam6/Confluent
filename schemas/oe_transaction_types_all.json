@@ -5,7 +5,7 @@
   "fields": [
     {
       "name": "TRANSACTION_TYPE_ID",
-      "type": "int"
+      "type": "float"
     },
     {
       "name": "ATTRIBUTE2",
