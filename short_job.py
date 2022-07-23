@@ -84,7 +84,7 @@ def writesql(dff, epoch_id):
         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
         .save()
 
-query = hp.writeStream.outputMode("append").foreachBatch(writesql).start()
+query = ooh.writeStream.outputMode("append").foreachBatch(writesql).start()
 query.awaitTermination()
 
 
