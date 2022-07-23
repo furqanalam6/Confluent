@@ -84,7 +84,11 @@ def writesql(dff, epoch_id):
         .save()
 
 query = hp.writeStream.outputMode("append").foreachBatch(writesql).start()
-query.awaitTermination()
+# query.awaitTermination()
+
+
+
+
 
 #read table data into a spark dataframe
 jdbcDF = spark.read.format("jdbc") \
