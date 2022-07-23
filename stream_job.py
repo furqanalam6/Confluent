@@ -131,7 +131,6 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
         .select("ool.HEADER_ID", "ool.FLOW_STATUS_CODE") \
                     .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 
-
 # hca.printSchema()
 # ooh.printSchema()
 

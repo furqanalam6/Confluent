@@ -7,7 +7,7 @@
       "name": "SOLD_TO_ORG_ID",
       "type": [
         "null",
-        "long"
+        "double"
       ],
       "default": null
     },
