@@ -51,18 +51,22 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 #     .format("console") \
 #     .start().awaitTermination()
 
+#set variable to be used to connect the database
 database = "TestDB"
 table = "dbo.PARTY"
 user = "SA"
 password  = "MhffPOC2022"
-
-jdbcDF = spark.read\
-        .option("driver" , "com.microsoft.sqlserver.jdbc.spark")\
-        .option("url", "jdbc:sqlserver://10.92.26.184:1433;TestDB")\
-        .option("dbtable", "PARTY")\
-        .option("user", "SA")\
-        .option("password", "MhffPOC2022").load()
-
+ 
+#read table data into a spark dataframe
+jdbcDF = spark.read.format("jdbc") \
+    .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
+    .option("dbtable", table) \
+    .option("user", user) \
+    .option("password", password) \
+    .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
+    .load()
+ 
+#show the data loaded into dataframe
 jdbcDF.show()
 
 # db_target_url = "jdbc:sqlserver://10.92.26.184:1433;TestDB"
