@@ -39,7 +39,7 @@ with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
 
 hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_HZP).alias("hp")) \
-       .select("hp*")
+       .select("hp.*")
     #    .PARTY_ID", "hp.PARTY_NAME")
 
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
