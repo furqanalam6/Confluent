@@ -154,7 +154,7 @@ joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") \
 query = ot \
     .writeStream \
     .format("console") \
-        .mode("permissive") \
+        .option("mode", "permissive") \
     .start().awaitTermination()
 
 # database = "STCC"
