@@ -99,7 +99,7 @@ hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
        .select("hp.PARTY_ID", "hp.PARTY_NAME")
 
 hca = HZ_CUST_ACCOUNTS.selectExpr("substring(value, 6) as value") \
-    .select(from_avro(col("value"), schema_HZC).alias("hca")) \
+    .select(from_avro(col("value"), schema_HZC).alias("hca")).withColumn("hca.CUST_ACCOUNT_ID", func.round("hca.CUST_ACCOUNT_ID") \
       .select("hca.PARTY_ID", "hca.CUST_ACCOUNT_ID")
 
 haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
@@ -133,7 +133,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 
 
 # Join
-joining_result = hca.join(ooh, hca["CUST_ACCOUNT_ID"] != ooh["SOLD_TO_ORG_ID"]) \
+joining_result = hca.join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
 
 
 # hp.join(hca, "party_id") \
