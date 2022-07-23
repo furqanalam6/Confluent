@@ -136,7 +136,7 @@ hca.printSchema()
 ooh.printSchema()
 
 # Join
-joining_result = hca.join(ooh, round(hca["CUST_ACCOUNT_ID"]) == round(ooh["SOLD_TO_ORG_ID"])) \
+joining_result = hca.join(ooh, func.round(hca["CUST_ACCOUNT_ID"]) == func.round(ooh["SOLD_TO_ORG_ID"])) \
 
 
 # hp.join(hca, "party_id") \
