@@ -2,7 +2,8 @@ from ntpath import join
 from pyspark.sql import SparkSession
 # , SaveMode, Row, DataFrame
 from pyspark.sql.avro.functions import from_avro
-from pyspark.sql.functions import col, expr, func
+from pyspark.sql.functions import col, expr
+import pyspark.sql.functions as func
 # from pyspark.sql.functions import *
 # from pyspark.sql.types import *
 # from pyspark.sql import DataFrameWriter
