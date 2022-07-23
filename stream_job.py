@@ -133,11 +133,10 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 
 
 # Join
-joining_result = hp.join(hca, "party_id") \
-                .join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+joining_result = hca.join(ooh, hca["CUST_ACCOUNT_ID"] != ooh["SOLD_TO_ORG_ID"]) \
 
 
-
+# hp.join(hca, "party_id") \
 
 # ooh.join(ool, "HEADER_ID") \
 #                         .select("HEADER_ID", "FLOW_STATUS_CODE")
