@@ -1,3 +1,4 @@
+from ntpath import join
 from pyspark.sql import SparkSession
 # , SaveMode, Row, DataFrame
 from pyspark.sql.avro.functions import from_avro
@@ -133,12 +134,12 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 
 
 # Join
-# joining_result = ooh.join(ool, "HEADER_ID") \
-#     .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
-#         .join(ottt, ot["TRANSACTION_TYPE_ID"] == ottt["TRANSACTION_TYPE_ID"]) \
-#             .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
-#                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
-#                     .join(hp, hca["party_id"] == hp["party_id"]).select("ooh.HEADER_ID")
+joining_result = ooh.join(ool, "HEADER_ID") \
+    .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
+        .join(ottt, ot["TRANSACTION_TYPE_ID"] == ottt["TRANSACTION_TYPE_ID"]) \
+            .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+                .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
+                    .join(hp, hca["party_id"] == hp["party_id"]).select("ooh.HEADER_ID")
 
 # query = ooh \
 #     .writeStream \
@@ -160,7 +161,7 @@ def writesql(dff, epoch_id):
         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
         .save()
 
-query = hp.writeStream.outputMode("append").foreachBatch(writesql).start()
+query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 query.awaitTermination()
 
 
