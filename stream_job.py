@@ -125,41 +125,42 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 
 ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
-        .select("ool.FLOW_STATUS_CODE").filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
-        # ("ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
-        #     ,  "ool.UNIT_LIST_PRICE", "ool.INVENTORY_ITEM_ID" \
-        #         , "ool.SHIP_FROM_ORG_ID", "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE", "ool.LAST_UPDATE_DATE") \
-        #             .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
+        .select("ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
+            ,  "ool.UNIT_LIST_PRICE", "ool.INVENTORY_ITEM_ID" \
+                , "ool.SHIP_FROM_ORG_ID", "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE", "ool.LAST_UPDATE_DATE") \
+                    .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 
 
 # Join
+joining_result = ooh.join(ool, "HEADER_ID") \
+    .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
+        .join(ottt, ot["TRANSACTION_TYPE_ID"] == ottt["TRANSACTION_TYPE_ID"]) \
+            .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+                .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
+                    .join(hp, hca["party_id"] == hp["party_id"]) \
+
 # query = ooh \
 #     .writeStream \
 #     .format("console") \
 #     .start().awaitTermination()
 
-database = "TestDB"
-table = "dbo.oe_order_headers_all"
+database = "STCC"
+table = "dbo.complex_query"
 user = "SA"
 password  = "MhffPOC2022"
 
-db_target_url = "jdbc:sqlserver://10.92.26.184:1433;TestDB"
-db_target_properties = {"user":"SA", "password":"MhffPOC2022"}
-
 def writesql(dff, epoch_id):
-    dfwrite = dff.write.mode("overwrite") \
-    .format("jdbc") \
-    .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
-    .option("dbtable", table) \
-    .option("user", user) \
-    .option("password", password) \
-    .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
-    .save()
+    dff.write.mode("overwrite") \
+        .format("jdbc") \
+        .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
+        .option("dbtable", table) \
+        .option("user", user) \
+        .option("password", password) \
+        .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
+        .save()
 
-    dfwrite.jdbc(url=db_target_url, table="oe_order_headers_all", properties=db_target_properties) # if this is not working use below
-    #df.write.jdbc(url=jdbcurl, table=table_name, properties=db_properties, mode="append")
-    pass
-
-
-query = hp.writeStream.outputMode("append").foreachBatch(writesql).start()
+query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 query.awaitTermination()
+
+
+
