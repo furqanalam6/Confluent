@@ -132,8 +132,11 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
                     .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 
 
+hca.printSchema()
+ooh.printSchema()
+
 # Join
-joining_result = hca.join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+# joining_result = hca.join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
 
 
 # hp.join(hca, "party_id") \
