@@ -39,7 +39,8 @@ with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
 
 hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_HZP).alias("hp")) \
-       .select("hp.PARTY_ID", "hp.PARTY_NAME")
+       .select("hp*")
+    #    .PARTY_ID", "hp.PARTY_NAME")
 
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
@@ -83,7 +84,7 @@ def writesql(dff, epoch_id):
         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
         .save()
 
-query = ooh.writeStream.outputMode("append").foreachBatch(writesql).start()
+query = hp.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
 
 
