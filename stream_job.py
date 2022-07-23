@@ -132,14 +132,17 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 
 
 # Join
-joining_result = ooh.join(ool, "HEADER_ID") \
-                        .select("HEADER_ID", "FLOW_STATUS_CODE")
+joining_result = hp.join(hca, "party_id")
+
+
+# ooh.join(ool, "HEADER_ID") \
+#                         .select("HEADER_ID", "FLOW_STATUS_CODE")
 
     # .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
     #     .join(ottt, ot["TRANSACTION_TYPE_ID"] == ottt["TRANSACTION_TYPE_ID"]) \
     #         .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
     #             .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
-    #                 .join(hp, hca["party_id"] == hp["party_id"])
+                    # .join(hp, hca["party_id"] == hp["party_id"])
 
 # query = ooh \
 #     .writeStream \
