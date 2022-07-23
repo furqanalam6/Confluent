@@ -46,10 +46,10 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
         .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
             ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE","ooh.FLOW_STATUS_CODE")
 
-query = hp \
-    .writeStream \
-    .format("console") \
-    .start().awaitTermination()
+# query = hp \
+#     .writeStream \
+#     .format("console") \
+#     .start().awaitTermination()
 
 #set variable to be used to connect the database
 database = "TestDB"
@@ -83,7 +83,7 @@ def writesql(dff, epoch_id):
         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
         .save()
 
-query = hp.writeStream.outputMode("append").foreachBatch(writesql).start()
+query = ooh.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
 
 
