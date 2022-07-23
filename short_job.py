@@ -85,22 +85,22 @@ def writesql(dff, epoch_id):
         .save()
 
 query = hp.writeStream.outputMode("append").foreachBatch(writesql).start()
-# query.awaitTermination()
+query.awaitTermination()
 
 
 
 
 
-#read table data into a spark dataframe
-jdbcDF = spark.read.format("jdbc") \
-    .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
-    .option("dbtable", table) \
-    .option("user", user) \
-    .option("password", password) \
-    .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
-    .load()
+# #read table data into a spark dataframe
+# jdbcDF = spark.read.format("jdbc") \
+#     .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
+#     .option("dbtable", table) \
+#     .option("user", user) \
+#     .option("password", password) \
+#     .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
+#     .load()
  
-#show the data loaded into dataframe
-jdbcDF.show()
+# #show the data loaded into dataframe
+# jdbcDF.show()
 
 
