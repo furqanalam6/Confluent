@@ -53,24 +53,24 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 
 #set variable to be used to connect the database
 database = "TestDB"
-table = "dbo.PARTY"
+table = "dbo.headers"
 user = "SA"
 password  = "MhffPOC2022"
 db_target_url = "jdbc:sqlserver://10.92.26.184:1433;TestDB"
 db_target_properties = {"user":"SA", "password":"MhffPOC2022"}
 
  
-#read table data into a spark dataframe
-jdbcDF = spark.read.format("jdbc") \
-    .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
-    .option("dbtable", table) \
-    .option("user", user) \
-    .option("password", password) \
-    .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
-    .load()
+# #read table data into a spark dataframe
+# jdbcDF = spark.read.format("jdbc") \
+#     .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
+#     .option("dbtable", table) \
+#     .option("user", user) \
+#     .option("password", password) \
+#     .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
+#     .load()
  
-#show the data loaded into dataframe
-jdbcDF.show()
+# #show the data loaded into dataframe
+# jdbcDF.show()
 
 
 def writesql(dff, epoch_id):
