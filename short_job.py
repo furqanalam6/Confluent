@@ -15,6 +15,14 @@ spark = SparkSession \
 
 spark.sparkContext.setLogLevel('ERROR')
 
+HZ_PARTIES = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+    .option("subscribe", "EBSPRE.AR.HZ_PARTIES") \
+    .option("startingOffsets", "earliest") \
+    .load()
+
 OE_ORDER_HEADERS_ALL = spark \
     .readStream \
     .format("kafka") \
@@ -23,8 +31,15 @@ OE_ORDER_HEADERS_ALL = spark \
     .option("startingOffsets", "earliest") \
     .load()
 
+with open('/opt/Confluent/schemas/hz_parties.json','r') as f:
+  schema_HZP = f.read()
+
 with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
   schema_oe_headers_all = f.read()
+
+hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
+    .select(from_avro(col("value"), schema_HZP).alias("hp")) \
+       .select("hp.PARTY_ID", "hp.PARTY_NAME")
 
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
@@ -37,7 +52,7 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 #     .start().awaitTermination()
 
 database = "TestDB"
-table = "dbo.oe_order_headers_all"
+table = "dbo.hz_parties"
 user = "SA"
 password  = "MhffPOC2022"
 
@@ -59,6 +74,6 @@ def writesql(dff, epoch_id):
     pass
 
 
-query = ooh.writeStream.outputMode("append").foreachBatch(writesql).start()
+query = hp.writeStream.outputMode("append").foreachBatch(writesql).start()
 query.awaitTermination()
 
