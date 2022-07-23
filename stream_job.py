@@ -114,7 +114,8 @@ ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
 ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
         .select("ottt.TRANSACTION_TYPE_ID", "ottt.LANGUAGE") \
-            .filter("ottt.LANGUAGE = 'US'").filter("ottt.TRANSACTION_TYPE_ID == 1226.0")
+            .filter("ottt.LANGUAGE = 'US'")
+            # .filter("ottt.TRANSACTION_TYPE_ID == 1226.0")
 
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
@@ -135,7 +136,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 # ooh.printSchema()
 
 # Join
-# joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") 
+joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") 
 
 # hca.join(ooh, func.round(hca["CUST_ACCOUNT_ID"]) == func.round(ooh["SOLD_TO_ORG_ID"])) \
 
@@ -151,7 +152,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     #             .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
                     # .join(hp, hca["party_id"] == hp["party_id"])
 
-query = ot \
+query = joining_result \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
@@ -176,3 +177,4 @@ query = ot \
 
 
 
+    # .option("mode", "DROPMALFORMED") \
