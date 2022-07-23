@@ -83,11 +83,6 @@ def writesql(dff, epoch_id):
         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
         .save()
 
-    # dff.jdbc(url=db_target_url, table="PARTY", properties=db_target_properties) # if this is not working use below
-    # #df.write.jdbc(url=jdbcurl, table=table_name, properties=db_properties, mode="append")
-    # pass
-
-
 query = hp.writeStream.outputMode("append").foreachBatch(writesql).start()
 query.awaitTermination()
 
@@ -102,13 +97,5 @@ jdbcDF = spark.read.format("jdbc") \
  
 #show the data loaded into dataframe
 jdbcDF.show()
-
-# #set variable to be used to connect the database
-# database = "TestDB"
-# table = "dbo.tbl_spark_df"
-# user = "test"
-# password  = "*****"
- 
-#write the dataframe into a sql table
 
 
