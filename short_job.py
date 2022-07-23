@@ -31,8 +31,34 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
         .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
             ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE","ooh.FLOW_STATUS_CODE")
 
-query = ooh \
-    .writeStream \
-    .format("console") \
-    .start().awaitTermination()
+# query = ooh \
+#     .writeStream \
+#     .format("console") \
+#     .start().awaitTermination()
+
+database = "TestDB"
+table = "dbo.oe_order_headers_all"
+user = "SA"
+password  = "MhffPOC2022"
+
+db_target_url = "jdbc:sqlserver://10.92.26.184:1433;TestDB"
+db_target_properties = {"user":"SA", "password":"MhffPOC2022"}
+
+def writesql(dff, epoch_id):
+    dfwrite = dff.write.mode("overwrite") \
+    .format("jdbc") \
+    .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
+    .option("dbtable", table) \
+    .option("user", user) \
+    .option("password", password) \
+    .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
+    .save()
+
+    dfwrite.jdbc(url=db_target_url, table="oe_order_headers_all", properties=db_target_properties) # if this is not working use below
+    #df.write.jdbc(url=jdbcurl, table=table_name, properties=db_properties, mode="append")
+    pass
+
+
+query = ooh.writeStream.outputMode("append").foreachBatch(writesql).start()
+query.awaitTermination()
 
