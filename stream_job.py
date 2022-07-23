@@ -47,7 +47,7 @@ OE_TRANSACTION_TYPES_ALL = spark \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.ONT.OE_TRANSACTION_TYPES_ALL") \
     .option("startingOffsets", "earliest") \
-    .option("mode", "PERMISSIVE") \
+    .option("mode", "DROPMALFORMED") \
     .load()
 
 OE_TRANSACTION_TYPES_TL = spark \
