@@ -69,7 +69,7 @@ def writesql(dff, epoch_id):
     .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
     .save()
 
-    dfwrite.jdbc(url=db_target_url, table="oe_order_headers_all", properties=db_target_properties) # if this is not working use below
+    dfwrite.jdbc(url=db_target_url, table="hz_parties", properties=db_target_properties) # if this is not working use below
     #df.write.jdbc(url=jdbcurl, table=table_name, properties=db_properties, mode="append")
     pass
 

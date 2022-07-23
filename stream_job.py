@@ -9,6 +9,7 @@ from pyspark.sql.functions import col, expr
 
 spark = SparkSession \
     .builder \
+    .config("spark.driver.extraClassPath","/opt/bitnami/spark/jars/mssql-jdbc-6.4.0.jre8.jar") \
     .appName("STREAM") \
     .getOrCreate()
 spark.sparkContext.setLogLevel('ERROR')
