@@ -120,9 +120,10 @@ ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
         .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
-            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE").filter("ooh.FLOW_STATUS_CODE = 'CLOSED'").filter("ooh.SOLD_TO_ORG_ID= 132778.0000000000")
+            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE").filter("ooh.HEADER_ID == 1669.0")
+# filter("ooh.FLOW_STATUS_CODE = 'CLOSED'").
+            # .filter("ooh.SOLD_TO_ORG_ID= 132778.0000000000")
             # ,"ooh.FLOW_STATUS_CODE").filter("ooh.FLOW_STATUS_CODE == 'CLOSED'")
-            # .filter("ooh.HEADER_ID == 1669.0")
             # .filter( "ooh.ORDERED_DATE = '2022-01-01 09:23:34'")
 
             # .filter("ooh.HEADER_ID == 1669")
@@ -136,7 +137,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 # ooh.printSchema()
 
 # Join
-joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") 
+# joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") 
 
 # hca.join(ooh, func.round(hca["CUST_ACCOUNT_ID"]) == func.round(ooh["SOLD_TO_ORG_ID"])) \
 
@@ -152,7 +153,7 @@ joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID")
     #             .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
                     # .join(hp, hca["party_id"] == hp["party_id"])
 
-query = joining_result \
+query = ooh \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
