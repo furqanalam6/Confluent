@@ -135,7 +135,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 # ooh.printSchema()
 
 # Join
-joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") \
+# joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") \
 
 # hca.join(ooh, func.round(hca["CUST_ACCOUNT_ID"]) == func.round(ooh["SOLD_TO_ORG_ID"])) \
 
