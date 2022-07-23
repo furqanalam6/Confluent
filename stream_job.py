@@ -116,7 +116,7 @@ ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
 
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
-        .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" \
+        .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
             ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE","ooh.FLOW_STATUS_CODE").filter("ooh.FLOW_STATUS_CODE == 'CLOSED'")
             # .filter("ooh.HEADER_ID == 1669.0")
             # .filter( "ooh.ORDERED_DATE = '2022-01-01 09:23:34'")
@@ -127,7 +127,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
         .select("ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
             ,  "ool.UNIT_LIST_PRICE", "ool.INVENTORY_ITEM_ID" \
-                , "ool.SHIP_FROM_ORG_ID", "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE", "ool.LAST_UPDATE_DATE") \
+                , "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE", "ool.LAST_UPDATE_DATE") \
                     .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 
 
