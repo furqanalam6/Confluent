@@ -131,10 +131,10 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 
 ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
-        .select("ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
+        .select( "ool.LINE_CATEGORY_CODE" \
             ,  "ool.UNIT_LIST_PRICE", "ool.INVENTORY_ITEM_ID" \
                 , "ool.SHIP_FROM_ORG_ID", "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE") \
-                    .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'").filter("ool.LAST_UPDATE_DATE = '2022-01-01'")
+                    .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 
 # hca.printSchema()
 # ooh.printSchema()
