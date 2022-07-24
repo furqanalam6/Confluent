@@ -98,7 +98,7 @@ with open('/opt/Confluent/schemas/oe_order_lines_all.json','r') as f:
 hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_HZP).alias("hp")) \
        .select("hp.PARTY_ID", "hp.PARTY_NAME")
-
+# Perfectly Working
 hca = HZ_CUST_ACCOUNTS.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_HZC).alias("hca")) \
       .select("hca.PARTY_ID", "hca.CUST_ACCOUNT_ID")
@@ -153,7 +153,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     #             .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
                     # .join(hp, hca["party_id"] == hp["party_id"])
 
-query = hca \
+query = haou \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
