@@ -107,7 +107,7 @@ haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_hr).alias("haou")) \
         .select("haou.LOCATION_ID", "haou.BUSINESS_GROUP_ID", "haou.ORGANIZATION_ID") \
             .filter("haou.BUSINESS_GROUP_ID = 101")
-
+# Perfectly Working
 ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_all).alias("ot")) \
         .select("ot.TRANSACTION_TYPE_ID", "ot.ATTRIBUTE2", "ot.ATTRIBUTE6")
@@ -153,7 +153,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     #             .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
                     # .join(hp, hca["party_id"] == hp["party_id"])
 
-query = ot \
+query = ottt \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
