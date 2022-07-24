@@ -97,7 +97,7 @@ with open('/opt/Confluent/schemas/oe_order_lines_all.json','r') as f:
 # Perfectly Working
 hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_HZP).alias("hp")) \
-       .select("hp.PARTY_ID", "hp.PARTY_NAME")
+       .select("hp.PARTY_ID")
 # Perfectly Working
 hca = HZ_CUST_ACCOUNTS.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_HZC).alias("hca")) \
@@ -105,12 +105,12 @@ hca = HZ_CUST_ACCOUNTS.selectExpr("substring(value, 6) as value") \
 # Perfectly Working
 haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_hr).alias("haou")) \
-        .select("haou.LOCATION_ID", "haou.BUSINESS_GROUP_ID", "haou.ORGANIZATION_ID") \
+        .select("haou.ORGANIZATION_ID", "haou.BUSINESS_GROUP_ID") \
             .filter("haou.BUSINESS_GROUP_ID = 101")
 # Perfectly Working
 ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_all).alias("ot")) \
-        .select("ot.TRANSACTION_TYPE_ID", "ot.ATTRIBUTE2", "ot.ATTRIBUTE6")
+        .select("ot.TRANSACTION_TYPE_ID", "ot.ATTRIBUTE4", "ot.ATTRIBUTE6")
 # Perfectly Working
 ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
@@ -121,7 +121,8 @@ ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
         .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
-            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE").filter( "ooh.ORDERED_DATE = '2022-01-01'")
+            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE", "ooh.ITEM_CATEGORY")
+            # .filter( "ooh.ORDERED_DATE >= '2022-01-01'")
             # .filter("ooh.SOLD_TO_ORG_ID= 132778.0000000000")
             # ,"ooh.FLOW_STATUS_CODE").filter("ooh.FLOW_STATUS_CODE == 'CLOSED'")
 # .filter("ooh.HEADER_ID == 1669.0")
@@ -129,10 +130,10 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 
 ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
-        .select( "ool.LINE_CATEGORY_CODE" \
-            ,  "ool.UNIT_LIST_PRICE", "ool.INVENTORY_ITEM_ID" \
-                , "ool.SHIP_FROM_ORG_ID", "ool.ORDERED_ITEM","ool.HEADER_ID", "ool.FLOW_STATUS_CODE") \
-                    .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
+        .select( "ool.CREATION_DATE", "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
+            ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
+                , "ool.ORDERED_ITEM","ool.HEADER_ID", "OOL.FLOW_STATUS_CODE") \
+                    .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'").filter("ool.LAST_UPDATE_DATE >= '2022-01-01'")
 
 # hca.printSchema()
 # ooh.printSchema()
@@ -143,6 +144,9 @@ joining_result = hp.join(hca, "PARTY_ID") \
         .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
             .join(ottt, "TRANSACTION_TYPE_ID") \
                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
+                    .join(ool, "HEADER_ID").select("CREATION_DATE", "LAST_UPDATE_DATE" \
+                        , "ATTRIBUTE4", "ATTRIBUTE6", "ORDERED_QUANTITY", "ITEM_CATEGORY", "ORDERED_ITEM")
+
 
 
 # ooh.join(ool, "HEADER_ID") \
