@@ -159,7 +159,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 #                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
 #                     .join(hp, hca["party_id"] == hp["party_id"])
 
-query = ooh \
+query = hca \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
