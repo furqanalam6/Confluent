@@ -144,8 +144,7 @@ joining_result = hp.join(hca, "PARTY_ID") \
         .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
             .join(ottt, "TRANSACTION_TYPE_ID") \
                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
-                    .join(ool, "HEADER_ID").select("CREATION_DATE", "LAST_UPDATE_DATE" \
-                        , "ATTRIBUTE4", "ATTRIBUTE6", "ORDERED_QUANTITY", "ITEM_CATEGORY", "ORDERED_ITEM", "HEADER_ID")
+                    .join(ool, "HEADER_ID")
 
 
 
