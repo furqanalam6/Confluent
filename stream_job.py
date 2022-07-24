@@ -117,14 +117,15 @@ ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
         .select("ottt.TRANSACTION_TYPE_ID", "ottt.LANGUAGE") \
             .filter("ottt.LANGUAGE = 'US'")
             # .filter("ottt.TRANSACTION_TYPE_ID == 1226.0")
-
+# Perfectly Working
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
         .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
-            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE").filter("ooh.FLOW_STATUS_CODE = 'CLOSED'")
+            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE").filter( "ooh.ORDERED_DATE >= '2022-01-01'")
+
+# .filter("ooh.FLOW_STATUS_CODE = 'CLOSED'")
             # .filter("ooh.SOLD_TO_ORG_ID= 132778.0000000000")
             # ,"ooh.FLOW_STATUS_CODE").filter("ooh.FLOW_STATUS_CODE == 'CLOSED'")
-            # .filter( "ooh.ORDERED_DATE = '2022-01-01 09:23:34'")
 # .filter("ooh.HEADER_ID == 1669.0")
             # .filter("ooh.HEADER_ID == 1669")
 
