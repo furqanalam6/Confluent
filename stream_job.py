@@ -139,13 +139,13 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 # ooh.printSchema()
 
 # Join
-# joining_result = hp.join(hca, "PARTY_ID") \
-#     .join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
-#         .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
-#             .join(ottt, "TRANSACTION_TYPE_ID") \
-#                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
-#                     .join(ool, "HEADER_ID").select("CREATION_DATE", "LAST_UPDATE_DATE" \
-#                         , "ATTRIBUTE4", "ATTRIBUTE6", "ORDERED_QUANTITY", "ITEM_CATEGORY", "ORDERED_ITEM")
+joining_result = hp.join(hca, "PARTY_ID") \
+    .join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+        .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
+            .join(ottt, "TRANSACTION_TYPE_ID") \
+                .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
+                    .join(ool, "HEADER_ID").select("CREATION_DATE", "LAST_UPDATE_DATE" \
+                        , "ATTRIBUTE4", "ATTRIBUTE6", "ORDERED_QUANTITY", "ITEM_CATEGORY", "ORDERED_ITEM", "HEADER_ID")
 
 
 
@@ -189,7 +189,7 @@ def writesql(dff, epoch_id):
         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
         .save()
 
-query = ool.writeStream.outputMode("append").foreachBatch(writesql).start()
+query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 query.awaitTermination()
 
 
