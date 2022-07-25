@@ -1,0 +1,3348 @@
+{
+  "type": "record",
+  "name": "ConnectDefault",
+  "namespace": "io.confluent.connect.avro",
+  "fields": [
+    {
+      "name": "INVENTORY_ITEM_ID",
+      "type": "double"
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "type": "double"
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "type": {
+        "type": "int",
+        "connect.version": 1,
+        "connect.name": "org.apache.kafka.connect.data.Date",
+        "logicalType": "date"
+      }
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "type": "double"
+    },
+    {
+      "name": "CREATION_DATE",
+      "type": {
+        "type": "int",
+        "connect.version": 1,
+        "connect.name": "org.apache.kafka.connect.data.Date",
+        "logicalType": "date"
+      }
+    },
+    {
+      "name": "CREATED_BY",
+      "type": "double"
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SUMMARY_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "ENABLED_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "START_DATE_ACTIVE",
+      "type": [
+        "null",
+        {
+          "type": "int",
+          "connect.version": 1,
+          "connect.name": "org.apache.kafka.connect.data.Date",
+          "logicalType": "date"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "END_DATE_ACTIVE",
+      "type": [
+        "null",
+        {
+          "type": "int",
+          "connect.version": 1,
+          "connect.name": "org.apache.kafka.connect.data.Date",
+          "logicalType": "date"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "DESCRIPTION",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "BUYER_ID",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "ACCOUNTING_RULE_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "INVOICING_RULE_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT1",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT2",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT3",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT4",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT5",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT6",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT7",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT8",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT9",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT10",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT11",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT12",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT13",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT14",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT15",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT16",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT17",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT18",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT19",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SEGMENT20",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE_CATEGORY",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE1",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE2",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE3",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE4",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE5",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE6",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE7",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE8",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE9",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE10",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE11",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE12",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE13",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE14",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE15",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PURCHASING_ITEM_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "SHIPPABLE_ITEM_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "CUSTOMER_ORDER_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "INTERNAL_ORDER_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "SERVICE_ITEM_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "INVENTORY_ITEM_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "ENG_ITEM_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "INVENTORY_ASSET_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "PURCHASING_ENABLED_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "CUSTOMER_ORDER_ENABLED_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "INTERNAL_ORDER_ENABLED_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "SO_TRANSACTIONS_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "MTL_TRANSACTIONS_ENABLED_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "STOCK_ENABLED_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "BOM_ENABLED_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "BUILD_IN_WIP_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "REVISION_QTY_CONTROL_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ITEM_CATALOG_GROUP_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CATALOG_STATUS_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "RETURNABLE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFAULT_SHIPPING_ORG",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "COLLATERAL_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "TAXABLE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "QTY_RCV_EXCEPTION_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ALLOW_ITEM_DESC_UPDATE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "INSPECTION_REQUIRED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "RECEIPT_REQUIRED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "MARKET_PRICE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "HAZARD_CLASS_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "RFQ_REQUIRED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "QTY_RCV_TOLERANCE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "LIST_PRICE_PER_UNIT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "UN_NUMBER_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PRICE_TOLERANCE_PERCENT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ASSET_CATEGORY_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ROUNDING_FACTOR",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "UNIT_OF_ISSUE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ENFORCE_SHIP_TO_LOCATION_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ALLOW_SUBSTITUTE_RECEIPTS_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ALLOW_UNORDERED_RECEIPTS_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ALLOW_EXPRESS_DELIVERY_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DAYS_EARLY_RECEIPT_ALLOWED",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DAYS_LATE_RECEIPT_ALLOWED",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "RECEIPT_DAYS_EXCEPTION_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "RECEIVING_ROUTING_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "INVOICE_CLOSE_TOLERANCE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "RECEIVE_CLOSE_TOLERANCE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "AUTO_LOT_ALPHA_PREFIX",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "START_AUTO_LOT_NUMBER",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "LOT_CONTROL_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SHELF_LIFE_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SHELF_LIFE_DAYS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SERIAL_NUMBER_CONTROL_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "START_AUTO_SERIAL_NUMBER",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "AUTO_SERIAL_ALPHA_PREFIX",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SOURCE_TYPE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SOURCE_ORGANIZATION_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SOURCE_SUBINVENTORY",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "EXPENSE_ACCOUNT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ENCUMBRANCE_ACCOUNT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "RESTRICT_SUBINVENTORIES_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "UNIT_WEIGHT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "WEIGHT_UOM_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "VOLUME_UOM_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "UNIT_VOLUME",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "RESTRICT_LOCATORS_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "LOCATION_CONTROL_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SHRINKAGE_RATE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ACCEPTABLE_EARLY_DAYS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PLANNING_TIME_FENCE_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEMAND_TIME_FENCE_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "LEAD_TIME_LOT_SIZE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "STD_LOT_SIZE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CUM_MANUFACTURING_LEAD_TIME",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "OVERRUN_PERCENTAGE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "MRP_CALCULATE_ATP_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ACCEPTABLE_RATE_INCREASE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ACCEPTABLE_RATE_DECREASE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CUMULATIVE_TOTAL_LEAD_TIME",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PLANNING_TIME_FENCE_DAYS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEMAND_TIME_FENCE_DAYS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "END_ASSEMBLY_PEGGING_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "REPETITIVE_PLANNING_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PLANNING_EXCEPTION_SET",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "BOM_ITEM_TYPE",
+      "type": "double"
+    },
+    {
+      "name": "PICK_COMPONENTS_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "REPLENISH_TO_ORDER_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "BASE_ITEM_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATP_COMPONENTS_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "ATP_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "FIXED_LEAD_TIME",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "VARIABLE_LEAD_TIME",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "WIP_SUPPLY_LOCATOR_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "WIP_SUPPLY_TYPE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "WIP_SUPPLY_SUBINVENTORY",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PRIMARY_UOM_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PRIMARY_UNIT_OF_MEASURE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ALLOWED_UNITS_LOOKUP_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "COST_OF_SALES_ACCOUNT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SALES_ACCOUNT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFAULT_INCLUDE_IN_ROLLUP_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "INVENTORY_ITEM_STATUS_CODE",
+      "type": "string"
+    },
+    {
+      "name": "INVENTORY_PLANNING_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PLANNER_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PLANNING_MAKE_BUY_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "FIXED_LOT_MULTIPLIER",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ROUNDING_CONTROL_TYPE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CARRYING_COST",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "POSTPROCESSING_LEAD_TIME",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PREPROCESSING_LEAD_TIME",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "FULL_LEAD_TIME",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ORDER_COST",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "MRP_SAFETY_STOCK_PERCENT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "MRP_SAFETY_STOCK_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "MIN_MINMAX_QUANTITY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "MAX_MINMAX_QUANTITY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "MINIMUM_ORDER_QUANTITY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "FIXED_ORDER_QUANTITY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "FIXED_DAYS_SUPPLY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "MAXIMUM_ORDER_QUANTITY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATP_RULE_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PICKING_RULE_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "RESERVABLE_TYPE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "POSITIVE_MEASUREMENT_ERROR",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "NEGATIVE_MEASUREMENT_ERROR",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ENGINEERING_ECN_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ENGINEERING_ITEM_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ENGINEERING_DATE",
+      "type": [
+        "null",
+        {
+          "type": "int",
+          "connect.version": 1,
+          "connect.name": "org.apache.kafka.connect.data.Date",
+          "logicalType": "date"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "SERVICE_STARTING_DELAY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "VENDOR_WARRANTY_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "SERVICEABLE_COMPONENT_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SERVICEABLE_PRODUCT_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "BASE_WARRANTY_SERVICE_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PAYMENT_TERMS_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PREVENTIVE_MAINTENANCE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PRIMARY_SPECIALIST_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SECONDARY_SPECIALIST_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SERVICEABLE_ITEM_CLASS_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "TIME_BILLABLE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "MATERIAL_BILLABLE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "EXPENSE_BILLABLE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PRORATE_SERVICE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "COVERAGE_SCHEDULE_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SERVICE_DURATION_PERIOD_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SERVICE_DURATION",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "WARRANTY_VENDOR_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "MAX_WARRANTY_AMOUNT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "RESPONSE_TIME_PERIOD_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "RESPONSE_TIME_VALUE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "NEW_REVISION_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "INVOICEABLE_ITEM_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "TAX_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "INVOICE_ENABLED_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "MUST_USE_APPROVED_VENDOR_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "REQUEST_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PROGRAM_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "type": [
+        "null",
+        {
+          "type": "int",
+          "connect.version": 1,
+          "connect.name": "org.apache.kafka.connect.data.Date",
+          "logicalType": "date"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "OUTSIDE_OPERATION_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "OUTSIDE_OPERATION_UOM_TYPE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SAFETY_STOCK_BUCKET_DAYS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "AUTO_REDUCE_MPS",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 0,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "0"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "COSTING_ENABLED_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "AUTO_CREATED_CONFIG_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "CYCLE_COUNT_ENABLED_FLAG",
+      "type": "string"
+    },
+    {
+      "name": "ITEM_TYPE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "MODEL_CONFIG_CLAUSE_NAME",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SHIP_MODEL_COMPLETE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "MRP_PLANNING_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "RETURN_INSPECTION_REQUIREMENT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATO_FORECAST_CONTROL",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "RELEASE_TIME_FENCE_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "RELEASE_TIME_FENCE_DAYS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CONTAINER_ITEM_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "VEHICLE_ITEM_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "MAXIMUM_LOAD_WEIGHT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "MINIMUM_FILL_PERCENT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CONTAINER_TYPE_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "INTERNAL_VOLUME",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "WH_UPDATE_DATE",
+      "type": [
+        "null",
+        {
+          "type": "int",
+          "connect.version": 1,
+          "connect.name": "org.apache.kafka.connect.data.Date",
+          "logicalType": "date"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "PRODUCT_FAMILY_ITEM_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE_CATEGORY",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE1",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE2",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE3",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE4",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE5",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE6",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE7",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE8",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE9",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE10",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PURCHASING_TAX_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "OVERCOMPLETION_TOLERANCE_TYPE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "OVERCOMPLETION_TOLERANCE_VALUE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "EFFECTIVITY_CONTROL",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CHECK_SHORTAGES_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "OVER_SHIPMENT_TOLERANCE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "UNDER_SHIPMENT_TOLERANCE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "OVER_RETURN_TOLERANCE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "UNDER_RETURN_TOLERANCE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "EQUIPMENT_TYPE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "RECOVERED_PART_DISP_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFECT_TRACKING_ON_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "USAGE_ITEM_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "EVENT_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ELECTRONIC_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DOWNLOADABLE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "VOL_DISCOUNT_EXEMPT_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "COUPON_EXEMPT_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "COMMS_NL_TRACKABLE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ASSET_CREATION_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "COMMS_ACTIVATION_REQD_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ORDERABLE_ON_WEB_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "BACK_ORDERABLE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "WEB_STATUS",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "INDIVISIBLE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DIMENSION_UOM_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "UNIT_LENGTH",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "UNIT_WIDTH",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "UNIT_HEIGHT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "BULK_PICKED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "LOT_STATUS_ENABLED",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFAULT_LOT_STATUS_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SERIAL_STATUS_ENABLED",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFAULT_SERIAL_STATUS_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "LOT_SPLIT_ENABLED",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "LOT_MERGE_ENABLED",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "INVENTORY_CARRY_PENALTY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "OPERATION_SLACK_PENALTY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "FINANCING_ALLOWED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "EAM_ITEM_TYPE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "EAM_ACTIVITY_TYPE_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "EAM_ACTIVITY_CAUSE_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "EAM_ACT_NOTIFICATION_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "EAM_ACT_SHUTDOWN_STATUS",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DUAL_UOM_CONTROL",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SECONDARY_UOM_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DUAL_UOM_DEVIATION_HIGH",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DUAL_UOM_DEVIATION_LOW",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CONTRACT_ITEM_TYPE_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SUBSCRIPTION_DEPEND_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SERV_REQ_ENABLED_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SERV_BILLING_ENABLED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SERV_IMPORTANCE_LEVEL",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PLANNED_INV_POINT_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "LOT_TRANSLATE_ENABLED",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFAULT_SO_SOURCE_TYPE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "CREATE_SUPPLY_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SUBSTITUTION_WINDOW_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SUBSTITUTION_WINDOW_DAYS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "IB_ITEM_INSTANCE_CLASS",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "CONFIG_MODEL_TYPE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "LOT_SUBSTITUTION_ENABLED",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "MINIMUM_LICENSE_QUANTITY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "EAM_ACTIVITY_SOURCE_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "LIFECYCLE_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CURRENT_PHASE_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "OBJECT_VERSION_NUMBER",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "TRACKING_QUANTITY_IND",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ONT_PRICING_QTY_SOURCE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SECONDARY_DEFAULT_IND",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "OPTION_SPECIFIC_SOURCED",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "APPROVAL_STATUS",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "VMI_MINIMUM_UNITS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "VMI_MINIMUM_DAYS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "VMI_MAXIMUM_UNITS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "VMI_MAXIMUM_DAYS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "VMI_FIXED_ORDER_QUANTITY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SO_AUTHORIZATION_FLAG",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CONSIGNED_FLAG",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "ASN_AUTOEXPIRE_FLAG",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "VMI_FORECAST_TYPE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "FORECAST_HORIZON",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "EXCLUDE_FROM_BUDGET_FLAG",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DAYS_TGT_INV_SUPPLY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DAYS_TGT_INV_WINDOW",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DAYS_MAX_INV_SUPPLY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DAYS_MAX_INV_WINDOW",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DRP_PLANNED_FLAG",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CRITICAL_COMPONENT_FLAG",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CONTINOUS_TRANSFER",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CONVERGENCE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DIVERGENCE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CONFIG_ORGS",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "CONFIG_MATCH",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE11",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE12",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE13",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE14",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE15",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE16",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE17",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE18",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE19",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE20",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE16",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE17",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE18",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE19",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE20",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE21",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE22",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE23",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE24",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE25",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE26",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE27",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE28",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE29",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "ATTRIBUTE30",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "CAS_NUMBER",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "CHILD_LOT_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "CHILD_LOT_PREFIX",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "CHILD_LOT_STARTING_NUMBER",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CHILD_LOT_VALIDATION_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "COPY_LOT_ATTRIBUTE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFAULT_GRADE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "EXPIRATION_ACTION_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "EXPIRATION_ACTION_INTERVAL",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "GRADE_CONTROL_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "HAZARDOUS_MATERIAL_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "HOLD_DAYS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "LOT_DIVISIBLE_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "MATURITY_DAYS",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PARENT_CHILD_GENERATION_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PROCESS_COSTING_ENABLED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PROCESS_EXECUTION_ENABLED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PROCESS_QUALITY_ENABLED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PROCESS_SUPPLY_LOCATOR_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PROCESS_SUPPLY_SUBINVENTORY",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "PROCESS_YIELD_LOCATOR_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PROCESS_YIELD_SUBINVENTORY",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "RECIPE_ENABLED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "RETEST_INTERVAL",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "CHARGE_PERIODICITY_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "REPAIR_LEADTIME",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "REPAIR_YIELD",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "PREPOSITION_POINT",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "REPAIR_PROGRAM",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SUBCONTRACTING_COMPONENT",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "OUTSOURCED_ASSEMBLY",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "EGO_MASTER_ITEMS_DFF_CTX",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GDSN_OUTBOUND_ENABLED_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "TRADE_ITEM_DESCRIPTOR",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "STYLE_ITEM_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "STYLE_ITEM_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "LAST_SUBMITTED_NIR_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "DEFAULT_MATERIAL_STATUS_ID",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "SERIAL_TAGGING_FLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "IB_ITEM_TRACKING_LEVEL",
+      "type": "string"
+    },
+    {
+      "name": "MCC_CLASSIFICATION_TYPE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "MCC_CONTROL_CODE",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "MCC_TRACKING_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE21",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE22",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE23",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE24",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE25",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE26",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE27",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE28",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE29",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE30",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE31",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE32",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE33",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE34",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE35",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE36",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE37",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE38",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE39",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "GLOBAL_ATTRIBUTE40",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "table",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "scn",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "op_type",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "op_ts",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "current_ts",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "row_id",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "username",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    }
+  ]
+}
