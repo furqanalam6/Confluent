@@ -136,8 +136,6 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
             ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
                 , "ool.ORDERED_ITEM","ool.HEADER_ID") \
                     .filter("ool.LAST_UPDATE_DATE = '2022-01-01'") \
-                    .limit(10)
-
 
                     # .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 # .filter("ool.LAST_UPDATE_DATE >= '2022-01-01'")
@@ -146,12 +144,12 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 # ooh.printSchema()
 
 # Join
-# joining_result = hp.join(hca, "PARTY_ID") \
-#     .join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
-#         .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
-#             .join(ottt, "TRANSACTION_TYPE_ID") \
-#                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) 
-# .join(ool, "HEADER_ID")
+joining_result = hp.join(hca, "PARTY_ID") \
+    .join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+        .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
+            .join(ottt, "TRANSACTION_TYPE_ID") \
+                .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
+                    .join(ool, "HEADER_ID")
 
 
 
@@ -175,27 +173,27 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 #                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
 #                     .join(hp, hca["party_id"] == hp["party_id"])
 
-query = ool \
-    .writeStream \
-    .format("console") \
-    .start().awaitTermination()
+# query = ool \
+#     .writeStream \
+#     .format("console") \
+#     .start().awaitTermination()
 
-# database = "STCC"
-# table = "dbo.complex_query"
-# user = "SA"
-# password  = "MhffPOC2022"
+database = "STCC"
+table = "dbo.device_sales_table"
+user = "SA"
+password  = "MhffPOC2022"
 
-# def writesql(dff, epoch_id):
-#     dff.write.mode("overwrite") \
-#         .format("jdbc") \
-#         .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
-#         .option("dbtable", table) \
-#         .option("user", user) \
-#         .option("password", password) \
-#         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
-#         .save()
+def writesql(dff, epoch_id):
+    dff.write.mode("overwrite") \
+        .format("jdbc") \
+        .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
+        .option("dbtable", table) \
+        .option("user", user) \
+        .option("password", password) \
+        .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
+        .save()
 
-# query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
+query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
 
 
