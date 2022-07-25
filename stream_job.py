@@ -135,7 +135,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
         .select( "ool.CREATION_DATE", "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
             ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
                 , "ool.ORDERED_ITEM","ool.HEADER_ID") \
-                    .filter("ool.LAST_UPDATE_DATE = '2012-01-29'") \
+                    .filter("ool.LAST_UPDATE_DATE" = '2022-01-01') \
                     .limit(10)
 
 
