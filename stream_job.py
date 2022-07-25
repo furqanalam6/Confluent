@@ -194,7 +194,7 @@ def writesql(dff, epoch_id):
         .save()
 
 query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
-# query.awaitTermination()
+query.awaitTermination()
 
 
 
