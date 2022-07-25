@@ -114,7 +114,7 @@ ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
 # Perfectly Working
 ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
-        .select("ottt.TRANSACTION_TYPE_ID", "ottt.LANGUAGE") \
+        .select("ottt.TRANSACTION_TYPE_ID") \
             .filter("ottt.LANGUAGE = 'US'")
             # .filter("ottt.TRANSACTION_TYPE_ID == 1226.0")
 # Perfectly Working
@@ -133,7 +133,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
         .select( "ool.CREATION_DATE", "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
             ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
-                , "ool.ORDERED_ITEM","ool.HEADER_ID", "OOL.FLOW_STATUS_CODE") \
+                , "ool.ORDERED_ITEM","ool.HEADER_ID") \
                     .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
                     # .filter("ool.LAST_UPDATE_DATE >= '2022-01-01'")
 
