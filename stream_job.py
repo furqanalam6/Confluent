@@ -135,7 +135,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
         .select( "ool.CREATION_DATE", "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
             ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
                 , "ool.ORDERED_ITEM","ool.HEADER_ID") \
-                    .filter("ool.CREATION_DATE = '2012-01-29'")
+                    .filter("ool.HEADER_ID = 2615149.0")
 
 
                     # .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
