@@ -40,6 +40,13 @@ HR_ALL_ORGANIZATION_UNITS = spark \
     .option("startingOffsets", "earliest") \
     .load()
 
+MTL_SYSTEM_ITEMS_B = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+    .option("subscribe", "EBSPRE.INV.MTL_SYSTEM_ITEMS_B") \
+    .option("startingOffsets", "earliest") \
+    .load()
 
 OE_TRANSACTION_TYPES_ALL = spark \
     .readStream \
@@ -82,6 +89,9 @@ with open('/opt/Confluent/schemas/hz_cust_accounts.json','r') as f:
 with open('/opt/Confluent/schemas/hr_all_organization_units.json','r') as f:
   schema_hr = f.read()
 
+with open('/opt/Confluent/schemas/mtl_system_items_b.json','r') as f:
+  schema_inv = f.read()
+  
 with open('/opt/Confluent/schemas/oe_transaction_types_all.json','r') as f:
   schema_oe_all = f.read()
 
@@ -107,6 +117,13 @@ haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_hr).alias("haou")) \
         .select("haou.ORGANIZATION_ID") \
             .filter("haou.BUSINESS_GROUP_ID = 101")
+
+# yet to test
+inv = MTL_SYSTEM_ITEMS_B.selectExpr("substring(value, 6) as value") \
+    .select(from_avro(col("value"), schema_inv).alias("inv")) \
+        .select("inv.DESCRIPTION", "inv.SEGMENT1") \
+            .filter("inv.ORGANIZATION_ID = 105")
+
 # Perfectly Working
 ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_all).alias("ot")) \
@@ -130,6 +147,7 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 # .filter("ooh.HEADER_ID == 1669.0")
 # .filter("ooh.HEADER_ID == 1669")
 
+# Perfectly Working
 ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
         .select( "ool.CREATION_DATE", "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
@@ -149,7 +167,8 @@ joining_result = hp.join(hca, "PARTY_ID") \
         .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
             .join(ottt, "TRANSACTION_TYPE_ID") \
                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
-                    .join(ool, "HEADER_ID")
+                    .join(ool, "HEADER_ID") \
+                        .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
 
 
 
