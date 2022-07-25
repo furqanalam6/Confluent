@@ -105,7 +105,7 @@ hca = HZ_CUST_ACCOUNTS.selectExpr("substring(value, 6) as value") \
 # Perfectly Working
 haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_hr).alias("haou")) \
-        .select("haou.ORGANIZATION_ID", "haou.BUSINESS_GROUP_ID") \
+        .select("haou.ORGANIZATION_ID") \
             .filter("haou.BUSINESS_GROUP_ID = 101")
 # Perfectly Working
 ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
@@ -121,8 +121,9 @@ ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
         .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
-            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE")
-            # .filter( "ooh.ORDERED_DATE >= '2022-01-01'")
+            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE").filter( "ooh.ORDERED_DATE >= '2022-01-01'") \
+                .filter("ooh.FLOW_STATUS_CODE = 'CLOSED'")
+
             # .filter("ooh.SOLD_TO_ORG_ID= 132778.0000000000")
             # ,"ooh.FLOW_STATUS_CODE").filter("ooh.FLOW_STATUS_CODE == 'CLOSED'")
 # .filter("ooh.HEADER_ID == 1669.0")
@@ -145,7 +146,7 @@ joining_result = hp.join(hca, "PARTY_ID") \
         .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
             .join(ottt, "TRANSACTION_TYPE_ID") \
                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
-                    .join(ool, "HEADER_ID")
+                    # .join(ool, "HEADER_ID")
 
 
 
@@ -169,28 +170,28 @@ joining_result = hp.join(hca, "PARTY_ID") \
 #                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
 #                     .join(hp, hca["party_id"] == hp["party_id"])
 
-# query = ooh \
-#     .writeStream \
-#     .format("console") \
-#     .start().awaitTermination()
+query = haou \
+    .writeStream \
+    .format("console") \
+    .start().awaitTermination()
 
-database = "STCC"
-table = "dbo.complex_query"
-user = "SA"
-password  = "MhffPOC2022"
+# database = "STCC"
+# table = "dbo.complex_query"
+# user = "SA"
+# password  = "MhffPOC2022"
 
-def writesql(dff, epoch_id):
-    dff.write.mode("overwrite") \
-        .format("jdbc") \
-        .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
-        .option("dbtable", table) \
-        .option("user", user) \
-        .option("password", password) \
-        .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
-        .save()
+# def writesql(dff, epoch_id):
+#     dff.write.mode("overwrite") \
+#         .format("jdbc") \
+#         .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
+#         .option("dbtable", table) \
+#         .option("user", user) \
+#         .option("password", password) \
+#         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
+#         .save()
 
-query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
-query.awaitTermination()
+# query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
+# query.awaitTermination()
 
 
 
