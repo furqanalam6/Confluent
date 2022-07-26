@@ -15,7 +15,7 @@ spark = SparkSession \
     .appName("STREAM") \
     .getOrCreate()
 
-spark.sparkContext.setLogLevel('ERROR','WARN','FATAL')
+spark.sparkContext.setLogLevel('ERROR','WARN')
 
 HZ_PARTIES = spark \
     .readStream \
