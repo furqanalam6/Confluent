@@ -196,7 +196,7 @@ print("ready to join")
 #                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
 #                     .join(hp, hca["party_id"] == hp["party_id"])
 
-query = ooh \
+query = ool \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
