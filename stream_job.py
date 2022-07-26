@@ -1,6 +1,3 @@
-from logging import Logger
-from logging.config import _LoggerConfiguration
-from ntpath import join
 from pyspark.sql import SparkSession
 # , SaveMode, Row, DataFrame
 from pyspark.sql.avro.functions import from_avro
@@ -11,15 +8,14 @@ import pyspark.sql.functions as func
 # from pyspark.sql import DataFrameWriter
 # from pyspark.sql.functions import expr
 
-_LoggerConfiguration.debug("Debug logging messages") 
-Logger.info("Info logging messages")
 
 spark = SparkSession \
     .builder \
     .config("spark.driver.extraClassPath","/opt/bitnami/spark/jars/mssql-jdbc-6.4.0.jre8.jar") \
     .appName("STREAM") \
     .getOrCreate()
-spark.sparkContext.setLogLevel('ERROR')
+
+spark.sparkContext.setLogLevel('ERROR','WARN','FATAL')
 
 HZ_PARTIES = spark \
     .readStream \
