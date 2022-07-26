@@ -115,8 +115,8 @@ hca = HZ_CUST_ACCOUNTS.selectExpr("substring(value, 6) as value") \
 # Perfectly Working
 haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_hr).alias("haou")) \
-        # .select("haou.ORGANIZATION_ID") 
-            .filter("haou.BUSINESS_GROUP_ID = 101")
+        .select("haou.ORGANIZATION_ID") 
+            # .filter("haou.BUSINESS_GROUP_ID = 101")
 
 # yet to test
 inv = MTL_SYSTEM_ITEMS_B.selectExpr("substring(value, 6) as value") \
