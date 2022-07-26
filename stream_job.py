@@ -192,10 +192,10 @@ joining_result = hp.join(hca, "PARTY_ID") \
 #                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
 #                     .join(hp, hca["party_id"] == hp["party_id"])
 
-# query = ool \
-#     .writeStream \
-#     .format("console") \
-#     .start().awaitTermination()
+query = joining_result \
+    .writeStream \
+    .format("console") \
+    .start().awaitTermination()
 
 # database = "STCC"
 # table = "dbo.device_sales_table"
