@@ -153,9 +153,8 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
         .select( "ool.CREATION_DATE", "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
             ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
-                , "ool.ORDERED_ITEM","ool.HEADER_ID")
-                #  \
-                #     .filter("ool.LAST_UPDATE_DATE = '2022-01-01'")
+                , "ool.ORDERED_ITEM","ool.HEADER_ID") \
+                    .filter("ool.LAST_UPDATE_DATE = '2022-01-01'")
 
                     # .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 # .filter("ool.LAST_UPDATE_DATE >= '2022-01-01'")
