@@ -1,3 +1,5 @@
+from logging import Logger
+from logging.config import _LoggerConfiguration
 from ntpath import join
 from pyspark.sql import SparkSession
 # , SaveMode, Row, DataFrame
@@ -8,6 +10,9 @@ import pyspark.sql.functions as func
 # from pyspark.sql.types import *
 # from pyspark.sql import DataFrameWriter
 # from pyspark.sql.functions import expr
+
+_LoggerConfiguration.debug("Debug logging messages") 
+Logger.info("Info logging messages")
 
 spark = SparkSession \
     .builder \
@@ -165,11 +170,10 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 print("ready to join")
 # Join
 joining_result =  hp.join(hca, "PARTY_ID") \
-    .join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) 
-    # \
-#         .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
-#             .join(ottt, "TRANSACTION_TYPE_ID") \
-#                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"])
+    .join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+        .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
+            .join(ottt, "TRANSACTION_TYPE_ID") \
+                .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"])
                     # .join(ool, "HEADER_ID") \
                     #     .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
 
