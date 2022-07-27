@@ -164,7 +164,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 print("ready to join")
 # Join
 joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") \
-    .join(ot, ooh["ORDER_TYPE_ID"] == ["TRANSACTION_TYPE_ID"])
+    .join(ooh, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"])
 
 
 # hp.join(hca, "PARTY_ID") 
