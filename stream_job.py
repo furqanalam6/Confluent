@@ -167,7 +167,7 @@ joining_result =  hp.join(hca, "PARTY_ID") \
     .join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
         .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
             .join(ottt, "TRANSACTION_TYPE_ID") \
-                .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) 
+                .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
                     .join(ool, "HEADER_ID") \
                         .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
 
