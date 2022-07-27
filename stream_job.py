@@ -163,7 +163,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 # ooh.printSchema()
 print("ready to join")
 # Join
-joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") 
+joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID").count()
 
 # hp.join(hca, "PARTY_ID") 
     # .join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
