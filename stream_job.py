@@ -155,7 +155,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
             ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
                 , "ool.ORDERED_ITEM","ool.HEADER_ID") \
                     .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'") \
-                        .filter("ool.LAST_UPDATE_DATE = '2022-01-01'")
+                        .filter("ool.LAST_UPDATE_DATE >= '2022-01-01'")
 
                     # .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 # .filter("ool.LAST_UPDATE_DATE >= '2022-01-01'")
@@ -223,7 +223,7 @@ database = "STCC"
 table = "dbo.device_sales_table"
 user = "SA"
 password  = "MhffPOC2022"
-
+intvl = 0
 def writesql(dff, epoch_id):
     dff.write.mode("overwrite") \
         .format("jdbc") \
@@ -233,11 +233,14 @@ def writesql(dff, epoch_id):
         .option("password", password) \
         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
         .save()
-    print("iteration")
+    print("Iteration " + str(intvl) )
+    intvl+=1
 
 print("after iteration")
 query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 query.awaitTermination()
+
+# .trigger(processingTime='60 seconds')
 
 
 
