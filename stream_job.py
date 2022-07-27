@@ -193,32 +193,32 @@ joining_result =  hp.join(hca, "PARTY_ID")
 #                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
 #                     .join(hp, hca["party_id"] == hp["party_id"])
 
-# query = joining_result \
-#     .writeStream \
-#     .format("console") \
-#     .start().awaitTermination()
+query = joining_result \
+    .writeStream \
+    .format("console") \
+    .start().awaitTermination()
 
-print("start to write")
+# print("start to write")
 
-database = "STCC"
-table = "dbo.device_sales_table"
-user = "SA"
-password  = "MhffPOC2022"
+# database = "STCC"
+# table = "dbo.device_sales_table"
+# user = "SA"
+# password  = "MhffPOC2022"
 
-def writesql(dff, epoch_id):
-    dff.write.mode("overwrite") \
-        .format("jdbc") \
-        .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
-        .option("dbtable", table) \
-        .option("user", user) \
-        .option("password", password) \
-        .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
-        .save()
-    print("iteration")
+# def writesql(dff, epoch_id):
+#     dff.write.mode("overwrite") \
+#         .format("jdbc") \
+#         .option("url", f"jdbc:sqlserver://10.92.26.184:1433;databaseName={database};") \
+#         .option("dbtable", table) \
+#         .option("user", user) \
+#         .option("password", password) \
+#         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
+#         .save()
+#     print("iteration")
 
-print("after iteration")
-query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
-query.awaitTermination()
+# print("after iteration")
+# query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
+# query.awaitTermination()
 
 
 
