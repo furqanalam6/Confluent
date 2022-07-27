@@ -22,7 +22,7 @@ HZ_PARTIES = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.AR.HZ_PARTIES") \
-    .option("startingOffsets", "earliest") \
+    .option("startingOffsets", "latest") \
     .load()
 
 HZ_CUST_ACCOUNTS = spark \
@@ -30,7 +30,7 @@ HZ_CUST_ACCOUNTS = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.AR.HZ_CUST_ACCOUNTS") \
-    .option("startingOffsets", "earliest") \
+    .option("startingOffsets", "latest") \
     .load()
 
 HR_ALL_ORGANIZATION_UNITS = spark \
@@ -38,7 +38,7 @@ HR_ALL_ORGANIZATION_UNITS = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.HR.HR_ALL_ORGANIZATION_UNITS") \
-    .option("startingOffsets", "earliest") \
+    .option("startingOffsets", "latest") \
     .load()
 
 MTL_SYSTEM_ITEMS_B = spark \
@@ -46,7 +46,7 @@ MTL_SYSTEM_ITEMS_B = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.INV.MTL_SYSTEM_ITEMS_B") \
-    .option("startingOffsets", "earliest") \
+    .option("startingOffsets", "latest") \
     .load()
 
 OE_TRANSACTION_TYPES_ALL = spark \
@@ -54,7 +54,7 @@ OE_TRANSACTION_TYPES_ALL = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.ONT.OE_TRANSACTION_TYPES_ALL") \
-    .option("startingOffsets", "earliest") \
+    .option("startingOffsets", "latest") \
     .load()
 
 OE_TRANSACTION_TYPES_TL = spark \
@@ -62,7 +62,7 @@ OE_TRANSACTION_TYPES_TL = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.ONT.OE_TRANSACTION_TYPES_TL") \
-    .option("startingOffsets", "earliest") \
+    .option("startingOffsets", "latest") \
     .load()
 
 OE_ORDER_HEADERS_ALL = spark \
@@ -70,7 +70,7 @@ OE_ORDER_HEADERS_ALL = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.ONT.OE_ORDER_HEADERS_ALL") \
-    .option("startingOffsets", "earliest") \
+    .option("startingOffsets", "latest") \
     .load()
 
 OE_ORDER_LINES_ALL = spark \
@@ -78,7 +78,7 @@ OE_ORDER_LINES_ALL = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.ONT.OE_ORDER_LINES_ALL") \
-    .option("startingOffsets", "earliest") \
+    .option("startingOffsets", "latest") \
     .load()
 
 with open('/opt/Confluent/schemas/hz_parties.json','r') as f:
@@ -153,8 +153,8 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
         .select( "ool.CREATION_DATE", "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
             ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
-                , "ool.ORDERED_ITEM","ool.HEADER_ID") \
-                    .filter("ool.LAST_UPDATE_DATE = '2022-01-01'")
+                , "ool.ORDERED_ITEM","ool.HEADER_ID") 
+                    # .filter("ool.LAST_UPDATE_DATE = '2022-01-01'")
 
                     # .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'")
 # .filter("ool.LAST_UPDATE_DATE >= '2022-01-01'")
@@ -168,8 +168,8 @@ joining_result =  hp.join(hca, "PARTY_ID") \
         .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
             .join(ottt, "TRANSACTION_TYPE_ID") \
                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) 
-                    # .join(ool, "HEADER_ID") \
-                    #     .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
+                    .join(ool, "HEADER_ID") \
+                        .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
 
 
 
