@@ -161,7 +161,6 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 
 # hca.printSchema()
 # ooh.printSchema()
-sc.parallelize(ool)
 print("ready to join")
 # Join
 joining_result =  hp.join(hca, "PARTY_ID") \
