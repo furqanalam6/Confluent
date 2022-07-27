@@ -164,9 +164,9 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 print("ready to join")
 # Join
 joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") \
-    .join(ooh, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"])
+    .join(ooh, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"])
 
-
+print("join successfull")
 # hp.join(hca, "PARTY_ID") 
     # .join(ooh, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
     #     .join(ot, ooh["ORDER_TYPE_ID"] == ot["TRANSACTION_TYPE_ID"]) \
@@ -196,7 +196,7 @@ joining_result = ot.join(ottt, "TRANSACTION_TYPE_ID") \
 #             .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
 #                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
 #                     .join(hp, hca["party_id"] == hp["party_id"])
-
+print("ready to write on console")
 query = joining_result \
     .writeStream \
     .format("console") \
