@@ -22,7 +22,7 @@ HZ_PARTIES = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.AR.HZ_PARTIES") \
-    .option("startingOffsets", "latest") \
+    .option("startingOffsets", "earliest") \
     .load()
 
 HZ_CUST_ACCOUNTS = spark \
@@ -30,7 +30,7 @@ HZ_CUST_ACCOUNTS = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.AR.HZ_CUST_ACCOUNTS") \
-    .option("startingOffsets", "latest") \
+    .option("startingOffsets", "earliest") \
     .load()
 
 HR_ALL_ORGANIZATION_UNITS = spark \
@@ -38,7 +38,7 @@ HR_ALL_ORGANIZATION_UNITS = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.HR.HR_ALL_ORGANIZATION_UNITS") \
-    .option("startingOffsets", "latest") \
+    .option("startingOffsets", "earliest") \
     .load()
 
 MTL_SYSTEM_ITEMS_B = spark \
@@ -46,7 +46,7 @@ MTL_SYSTEM_ITEMS_B = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.INV.MTL_SYSTEM_ITEMS_B") \
-    .option("startingOffsets", "latest") \
+    .option("startingOffsets", "earliest") \
     .load()
 
 OE_TRANSACTION_TYPES_ALL = spark \
@@ -54,7 +54,7 @@ OE_TRANSACTION_TYPES_ALL = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.ONT.OE_TRANSACTION_TYPES_ALL") \
-    .option("startingOffsets", "latest") \
+    .option("startingOffsets", "earliest") \
     .load()
 
 OE_TRANSACTION_TYPES_TL = spark \
@@ -62,7 +62,7 @@ OE_TRANSACTION_TYPES_TL = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.ONT.OE_TRANSACTION_TYPES_TL") \
-    .option("startingOffsets", "latest") \
+    .option("startingOffsets", "earliest") \
     .load()
 
 OE_ORDER_HEADERS_ALL = spark \
@@ -70,7 +70,7 @@ OE_ORDER_HEADERS_ALL = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.ONT.OE_ORDER_HEADERS_ALL") \
-    .option("startingOffsets", "latest") \
+    .option("startingOffsets", "earliest") \
     .load()
 
 OE_ORDER_LINES_ALL = spark \
@@ -78,7 +78,7 @@ OE_ORDER_LINES_ALL = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "EBSPRE.ONT.OE_ORDER_LINES_ALL") \
-    .option("startingOffsets", "latest") \
+    .option("startingOffsets", "earliest") \
     .load()
 
 with open('/opt/Confluent/schemas/hz_parties.json','r') as f:
