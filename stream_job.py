@@ -223,7 +223,7 @@ database = "STCC"
 table = "dbo.device_sales_table"
 user = "SA"
 password  = "MhffPOC2022"
-intvl = 0
+# intvl = 0
 def writesql(dff, epoch_id):
     dff.write.mode("overwrite") \
         .format("jdbc") \
@@ -233,8 +233,8 @@ def writesql(dff, epoch_id):
         .option("password", password) \
         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
         .save()
-    print("Iteration " + str(intvl) )
-    intvl+=1
+    # print("Iteration " + str(intvl) )
+    # intvl+=1
 
 print("after iteration")
 query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
