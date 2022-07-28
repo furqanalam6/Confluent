@@ -220,7 +220,7 @@ print("join successfull")
 print("start to write")
 
 database = "STCC"
-table = "dbo.device_sales_table"
+table = "dbo.device_sales_tables"
 user = "SA"
 password  = "MhffPOC2022"
 # intvl = 0
