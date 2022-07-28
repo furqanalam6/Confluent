@@ -10,8 +10,8 @@ conf.setMaster("local").setAppName("My app")
 sc = SparkContext.getOrCreate(conf=conf)
 spark = SparkSession(sc)
 #set variable to be used to connect the database
-database = "TestDB"
-table = "dbo.PARTY"
+database = "stcc"
+table = "dbo.device_sales_table"
 user = "SA"
 password  = "MhffPOC2022"
  
