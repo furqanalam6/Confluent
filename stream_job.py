@@ -220,7 +220,7 @@ print("join successfull")
 print("start to write")
 
 database = "STCC"
-table = "dbo.device_sales_tables"
+table = "dbo.device_sales_tables_new"
 user = "SA"
 password  = "MhffPOC2022"
 # intvl = 0
@@ -233,7 +233,7 @@ def writesql(dff, epoch_id):
         .option("password", password) \
         .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver") \
         .save()
-    # print("Iteration " + str(intvl) )
+    print("Iteration ")
     # intvl+=1
 
 print("after iteration")

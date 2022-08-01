@@ -11,7 +11,7 @@ sc = SparkContext.getOrCreate(conf=conf)
 spark = SparkSession(sc)
 #set variable to be used to connect the database
 database = "stcc"
-table = "dbo.device_sales_table"
+table = "dbo.device_sales_tables"
 user = "SA"
 password  = "MhffPOC2022"
  
@@ -25,7 +25,7 @@ jdbcDF = spark.read.format("jdbc") \
     .load()
  
 #show the data loaded into dataframe
-jdbcDF.show()
+jdbcDF.count()
 
 # db_target_url = "jdbc:sqlserver://10.92.26.184:1433;TestDB"
 # db_target_properties = {"user":"SA", "password":"MhffPOC2022"}
