@@ -212,7 +212,7 @@ print("join successfull")
 #                 .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
 #                     .join(hp, hca["party_id"] == hp["party_id"])
 # print("ready to write on console")
-query = inv \
+query = ot \
     .writeStream \
     .format("console") \
     .trigger(processingTime='5 seconds') \
