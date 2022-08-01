@@ -215,7 +215,7 @@ print("join successfull")
 query = inv \
     .writeStream \
     .format("console") \
-    .trigger("5 seconds") \
+    .trigger(processingTime='5 seconds') \
     .start().awaitTermination()
 
 # print("start to write")
