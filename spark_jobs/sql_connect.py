@@ -25,7 +25,7 @@ jdbcDF = spark.read.format("jdbc") \
     .load()
  
 #show the data loaded into dataframe
-jdbcDF.count()
+jdbcDF.show()
 
 # db_target_url = "jdbc:sqlserver://10.92.26.184:1433;TestDB"
 # db_target_properties = {"user":"SA", "password":"MhffPOC2022"}
