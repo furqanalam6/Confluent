@@ -191,7 +191,7 @@ print("join successfull")
 # query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
 
-hp \
+joining_result \
    .writeStream \
    .format("kafka") \
    .outputMode("update") \
