@@ -197,6 +197,7 @@ joining_result \
    .outputMode("append") \
    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
    .option("topic", "complex_query") \
+   .option("checkpointLocation", "/opt/bitnami/spark/checkpoint") \
    .start() \
    .awaitTermination() \
 
