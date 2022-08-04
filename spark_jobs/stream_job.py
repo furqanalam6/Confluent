@@ -195,7 +195,7 @@ joining_result \
    .writeStream \
    .format("kafka") \
    .outputMode("append") \
-   .option("checkpointLocation", "/opt/bitnami/spark/checkpoint") \
+   .option("checkpointLocation", "/home/poc/checkpoint") \
    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
    .option("topic", "complex_query") \
    .start() \
