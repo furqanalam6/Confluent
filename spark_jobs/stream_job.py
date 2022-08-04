@@ -163,10 +163,10 @@ joining_result = ooh.join(ool, "HEADER_ID") \
 print("join successfull")
 
 # print("ready to write on console")
-# query = hp \
-#     .writeStream \
-#     .format("console") \
-#     .start().awaitTermination()
+query = joining_result \
+    .writeStream \
+    .format("console") \
+    .start().awaitTermination()
 
 # print("start to write")
 
@@ -191,14 +191,14 @@ print("join successfull")
 # query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
 
-joining_result \
-   .writeStream \
-   .format("kafka") \
-   .outputMode("update") \
-   .option("checkpointLocation", "checkpoint") \
-   .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-   .option("topic", "complex_query") \
-   .start() \
-   .awaitTermination() \
+# joining_result \
+#    .writeStream \
+#    .format("kafka") \
+#    .outputMode("update") \
+#    .option("checkpointLocation", "checkpoint") \
+#    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#    .option("topic", "complex_query") \
+#    .start() \
+#    .awaitTermination() 
 
 
