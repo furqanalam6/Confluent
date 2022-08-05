@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 # , SaveMode, Row, DataFrame
-from pyspark.sql.avro.functions import from_avro
+from pyspark.sql.avro.functions import from_avro, to_json
 from pyspark.sql.functions import col, expr
 import pyspark.sql.functions as func
 # from pyspark.sql.functions import *
@@ -190,14 +190,14 @@ query = joining_result \
 # query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
 
-# joining_result \
-#    .writeStream \
-#    .format("kafka") \
-#    .outputMode("update") \
-#    .option("checkpointLocation", "checkpoint") \
-#    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#    .option("topic", "complex_query") \
-#    .start() \
-#    .awaitTermination() 
+joining_result \
+    .selectExpr("to_avro(struct(*)) AS value") \
+   .writeStream \
+   .format("kafka") \
+   .outputMode("update") \
+   .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+   .option("topic", "complex_query") \
+   .start() \
+   .awaitTermination() 
 
 
