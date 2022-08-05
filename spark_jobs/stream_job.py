@@ -190,14 +190,13 @@ print("join successfull")
 # query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
 
-joining_result \
-    .selectExpr("to_json(struct(*)) AS value") \
-    .writeStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("checkpointLocation", "checkpoint") \
-    .option("topic", "complex_query") \
-    .start() \
-    .awaitTermination() 
+query = joining_result \
+            .selectExpr("to_json(struct(*)) AS value") \
+            .writeStream \
+            .format("kafka") \
+            .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+            .option("checkpointLocation", "checkpoint") \
+            .option("topic", "complex_query") \
+            .start().awaitTermination() 
 
 
