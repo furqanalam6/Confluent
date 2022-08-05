@@ -162,10 +162,10 @@ joining_result = ooh.join(ool, "HEADER_ID") \
 print("join successfull")
 
 # print("ready to write on console")
-query = joining_result \
-    .writeStream \
-    .format("console") \
-    .start().awaitTermination()
+# query = joining_result \
+#     .writeStream \
+#     .format("console") \
+#     .start().awaitTermination()
 
 # print("start to write")
 
