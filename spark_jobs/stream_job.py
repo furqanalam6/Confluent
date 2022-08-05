@@ -194,7 +194,6 @@ joining_result \
     .selectExpr("to_json(struct(*)) AS value") \
    .writeStream \
    .format("kafka") \
-   .outputMode("update") \
    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
    .option("topic", "complex_query") \
    .start() \
