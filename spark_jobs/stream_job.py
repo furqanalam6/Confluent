@@ -189,7 +189,7 @@ print("join successfull")
 # print("after iteration")
 # query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
-
+print("start to write")
 query = joining_result \
             .selectExpr("to_json(struct(*)) AS value") \
             .writeStream \
