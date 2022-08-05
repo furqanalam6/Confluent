@@ -139,7 +139,6 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
         .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
             ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE") 
-                # .filter( "ooh.ORDERED_DATE >= '2022-01-01'")
 
 # Perfectly Working
 ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
