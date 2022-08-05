@@ -195,6 +195,7 @@ joining_result \
    .writeStream \
    .format("kafka") \
    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+    .option("checkpointLocation", "checkpoint")
    .option("topic", "complex_query") \
    .start() \
    .awaitTermination() 
