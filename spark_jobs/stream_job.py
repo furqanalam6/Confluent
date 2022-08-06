@@ -1,7 +1,8 @@
+from ntpath import join
 from pyspark.sql import SparkSession
 # , SaveMode, Row, DataFrame
 from pyspark.sql.avro.functions import from_avro
-from pyspark.sql.functions import col, expr, to_json
+from pyspark.sql.functions import col, expr, to_avro
 import pyspark.sql.functions as func
 # from pyspark.sql.functions import *
 # from pyspark.sql.types import *
@@ -198,13 +199,23 @@ print("join successfull")
 # query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
 print("start to write")
-query = joining_result \
-            .selectExpr("to_json(struct(*)) AS value") \
-            .writeStream \
-            .format("kafka") \
-            .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-            .option("checkpointLocation", "checkpointlocation") \
-            .option("topic", "complex_query") \
-            .start().awaitTermination() 
+# query = joining_result \
+#             .selectExpr("to_avro(struct(*)) AS value") \
+#             .writeStream \
+#             .format("kafka") \
+#             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#             .option("checkpointLocation", "checkpointlocation") \
+#             .option("topic", "complex_query") \
+#             .start().awaitTermination() 
 
+# write as avro
+joining_result.select(to_avro(struct("value")) as "value") \
+      .writeStream \
+      .format("kafka") \
+      .outputMode("append") \
+      .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+      .option("topic", "avro_data_topic") \
+      .option("checkpointLocation","c:/tmp") \
+      .start() \
+      .awaitTermination()
 
