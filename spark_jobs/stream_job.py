@@ -194,7 +194,7 @@ print("join successfull")
 #         .save()
 #     print("Iteration ")
 #     # intvl+=1
-
+joining_result.printSchema()
 # print("after iteration")
 # query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
@@ -208,16 +208,16 @@ print("start to write")
 #             .option("topic", "complex_query") \
 #             .start().awaitTermination() 
 
-# write as avro
-joining_result.select(to_avro(struct(joining_result['ORDERED_DATE'], joining_result['ATTRIBUTE4'], joining_result['ATTRIBUTE6'], joining_result['DESCRIPTION'], 
-joining_result['UNIT_LIST_PRICE'], joining_result['ORDERED_QUANTITY'], joining_result['ORDERED_ITEM'],  joining_result['CREATION_DATE'],  joining_result['LAST_UPDATE_DATE'], 
- joining_result['ORDERED_ITEM'],  joining_result['ORDERED_ITEM'], ))).alias("value") \
-      .writeStream \
-      .format("kafka") \
-      .outputMode("append") \
-      .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-      .option("topic", "avro_data_topic_1") \
-      .option("checkpointLocation","check") \
-      .start() \
-      .awaitTermination()
+# # write as avro
+# joining_result.select(to_avro(struct(joining_result['ORDERED_DATE'], joining_result['ATTRIBUTE4'], joining_result['ATTRIBUTE6'], joining_result['DESCRIPTION'], 
+# joining_result['UNIT_LIST_PRICE'], joining_result['ORDERED_QUANTITY'], joining_result['ORDERED_ITEM'],  joining_result['CREATION_DATE'],  joining_result['LAST_UPDATE_DATE'], 
+#  joining_result['ORDERED_ITEM'],  joining_result['ORDERED_ITEM'], ))).alias("value") \
+#       .writeStream \
+#       .format("kafka") \
+#       .outputMode("append") \
+#       .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#       .option("topic", "avro_data_topic_1") \
+#       .option("checkpointLocation","check") \
+#       .start() \
+#       .awaitTermination()
 # [PARTY_ID: bigint, TRANSACTION_TYPE_ID: double, HEADER_ID: double, ORDER_TYPE_ID: double, SHIP_FROM_ORG_ID: double, SOLD_TO_ORG_ID: double, ORDERED_DATE: date, CREATION_DATE: date, LAST_UPDATE_DATE: date, LINE_CATEGORY_CODE: string, UNIT_LIST_PRICE: double, ORDERED_QUANTITY: double, ORDERED_ITEM: string, ATTRIBUTE4: string, ATTRIBUTE6: string, CUST_ACCOUNT_ID: bigint, ORGANIZATION_ID: bigint, DESCRIPTION: string, SEGMENT1: string]
