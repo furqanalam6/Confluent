@@ -215,7 +215,7 @@ joining_result.select(to_avro(struct("value")) as "value") \
       .outputMode("append") \
       .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
       .option("topic", "avro_data_topic") \
-      .option("checkpointLocation","c:/tmp") \
+      .option("checkpointLocation","check") \
       .start() \
       .awaitTermination()
 
