@@ -209,7 +209,9 @@ print("start to write")
 #             .start().awaitTermination() 
 
 # write as avro
-joining_result.select(to_avro(struct(joining_result[:,:]))) \
+joining_result.select(to_avro(struct(joining_result['ORDERED_DATE'], joining_result['ATTRIBUTE4'], joining_result['ATTRIBUTE6'], joining_result['DESCRIPTION'], 
+joining_result['UNIT_LIST_PRICE'], joining_result['ORDERED_QUANTITY'], joining_result['ORDERED_ITEM'],  joining_result['CREATION_DATE'],  joining_result['LAST_UPDATE_DATE'], 
+ joining_result['ORDERED_ITEM'],  joining_result['ORDERED_ITEM'], ))) \
       .writeStream \
       .format("kafka") \
       .outputMode("append") \
