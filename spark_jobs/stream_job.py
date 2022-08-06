@@ -209,7 +209,8 @@ print("start to write")
 #             .start().awaitTermination() 
 
 # write as avro
-joining_result.select(to_avro(struct("value")) as "value") \
+joining_result.select(from_avro(col("value"))) \
+      .alias("value") \
       .writeStream \
       .format("kafka") \
       .outputMode("append") \
