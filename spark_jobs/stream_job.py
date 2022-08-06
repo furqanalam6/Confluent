@@ -2,7 +2,7 @@ from ntpath import join
 from pyspark.sql import SparkSession
 # , SaveMode, Row, DataFrame
 from pyspark.sql.avro.functions import from_avro, to_avro
-from pyspark.sql.functions import col, expr, struct
+from pyspark.sql.functions import col, expr, struct, to_json
 import pyspark.sql.functions as func
 # from pyspark.sql.functions import *
 # from pyspark.sql.types import *
@@ -200,7 +200,7 @@ print("join successfull")
 # query.awaitTermination()
 print("start to write")
 query = joining_result \
-            .selectExpr("to_avro(struct(*)) AS value") \
+            .selectExpr("to_json(struct(*)) AS value") \
             .writeStream \
             .format("kafka") \
             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
