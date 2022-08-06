@@ -204,7 +204,7 @@ joining_result.printSchema()
 
 print("start to write")
 query = joining_result \
-            .selectExpr("struct(*) AS value") \
+            .selectExpr("CAST(struct(*) as string) AS value") \
             .writeStream \
             .format("kafka") \
             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
