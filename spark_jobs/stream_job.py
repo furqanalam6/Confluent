@@ -194,6 +194,9 @@ print("join successfull")
 #         .save()
 #     print("Iteration ")
 #     # intvl+=1
+
+
+
 joining_result.printSchema()
 # print("after iteration")
 # query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
