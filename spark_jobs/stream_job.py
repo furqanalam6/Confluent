@@ -3,6 +3,7 @@ from pyspark.sql import SparkSession
 # , SaveMode, Row, DataFrame
 from pyspark.sql.avro.functions import from_avro
 from pyspark.sql.functions import col, expr, to_avro
+import org.apache.spark.sql.avro._
 import pyspark.sql.functions as func
 # from pyspark.sql.functions import *
 # from pyspark.sql.types import *
@@ -209,7 +210,7 @@ print("start to write")
 #             .start().awaitTermination() 
 
 # write as avro
-joining_result.select(from_avro(col("value"))) \
+joining_result.select(to_avro(struct(col("value")))) \
       .alias("value") \
       .writeStream \
       .format("kafka") \
