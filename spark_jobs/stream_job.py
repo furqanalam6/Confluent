@@ -203,17 +203,18 @@ print("join successfull")
 
 
 # print("start to write")
-query = hp \
-            .selectExpr("CAST(to_json(struct(*)) as String) AS value") \
-            .writeStream \
-            .format("kafka") \
-            .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-            .option("checkpointLocation", "c") \
-            .option("topic", "complex_query1") \
-            .start().awaitTermination() 
+# query = hp \
+#             .selectExpr("CAST(to_json(struct(*)) as String) AS value") \
+#             .writeStream \
+#             .format("kafka") \
+#             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#             .option("checkpointLocation", "c") \
+#             .option("topic", "complex_query1") \
+#             .start().awaitTermination() 
 
+hp.printSchema()
 # # write as avro
-# query = hp.select(to_avro(struct('PARTY_ID'))).alias("value")\
+# query = hp.select(to_avro(struct("hpp.*")) as "value")\
 #       .writeStream \
 #       .format("kafka") \
 #       .outputMode("append") \
