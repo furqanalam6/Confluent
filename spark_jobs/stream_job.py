@@ -211,7 +211,6 @@ query = hp \
             .option("checkpointLocation", "c") \
             .option("topic", "complex_query2") \
             .start().awaitTermination() 
-h.printSchema()
 # hp.printSchema()
 # # write as avro
 # query = hp.selectExpr("struct(hp.PARTY_ID) as value")\
