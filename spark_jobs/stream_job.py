@@ -204,7 +204,7 @@ print("join successfull")
 
 print("start to write")
 query = hp \
-            .selectExpr("CAST(to_avro(struct(*)) as string) AS value") \
+            .selectExpr("CAST(to_json(struct(*)) as string) AS value") \
             .writeStream \
             .format("kafka") \
             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
