@@ -200,7 +200,14 @@ print("join successfull")
 # print("after iteration")
 # query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
-
+h = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+    .option("subscribe", "complex_query1") \
+    .option("startingOffsets", "earliest") \
+    .option("minPartitions",4) \
+    .load()
 
 # print("start to write")
 # query = hp \
@@ -211,10 +218,10 @@ print("join successfull")
 #             .option("checkpointLocation", "c") \
 #             .option("topic", "complex_query1") \
 #             .start().awaitTermination() 
-HZ_PARTIES.printSchema()
+h.printSchema()
 hp.printSchema()
 # # write as avro
-query = hp.selectExpr("to_avro(struct(hp.PARTY_ID)) as value")\
+query = hp.selectExpr("struct(hp.PARTY_ID) as value")\
       .writeStream \
       .format("kafka") \
       .outputMode("append") \
