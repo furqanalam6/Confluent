@@ -214,7 +214,7 @@ print("join successfull")
 
 hp.printSchema()
 # # write as avro
-query = hp.select(to_avro(struct("hp.*")) as "value")\
+query = hp.select(to_avro(struct("hp.*")).alias("value")\
       .writeStream \
       .format("kafka") \
       .outputMode("append") \
