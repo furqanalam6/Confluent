@@ -208,7 +208,7 @@ query = hp \
             .writeStream \
             .format("kafka") \
             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-            .option("checkpointLocation", "check") \
+            .option("checkpointLocation", "chek") \
             .option("topic", "complex_query") \
             .start().awaitTermination() 
 
