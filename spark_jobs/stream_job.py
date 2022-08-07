@@ -214,15 +214,15 @@ print("join successfull")
 
 hp.printSchema()
 # # write as avro
-# query = hp.select(to_avro(struct("hpp.*")) as "value")\
-#       .writeStream \
-#       .format("kafka") \
-#       .outputMode("append") \
-#       .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#       .option("topic", "avro_data_topic_1") \
-#       .option("checkpointLocation","c") \
-#       .start() \
-#       .awaitTermination()
+query = hp.select(to_avro(struct("hp.*")) as "value")\
+      .writeStream \
+      .format("kafka") \
+      .outputMode("append") \
+      .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+      .option("topic", "avro_data_topic_2") \
+      .option("checkpointLocation","c") \
+      .start() \
+      .awaitTermination()
 # [PARTY_ID: bigint, TRANSACTION_TYPE_ID: double, HEADER_ID: double, ORDER_TYPE_ID: double, SHIP_FROM_ORG_ID: double, SOLD_TO_ORG_ID: double, ORDERED_DATE: date, CREATION_DATE: date, LAST_UPDATE_DATE: date, LINE_CATEGORY_CODE: string, UNIT_LIST_PRICE: double, ORDERED_QUANTITY: double, ORDERED_ITEM: string, ATTRIBUTE4: string, ATTRIBUTE6: string, CUST_ACCOUNT_ID: bigint, ORGANIZATION_ID: bigint, DESCRIPTION: string, SEGMENT1: string]
 
 # joining_result\
