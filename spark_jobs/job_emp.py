@@ -18,101 +18,101 @@ spark = SparkSession \
 
 spark.sparkContext.setLogLevel('ERROR')
 
-HZ_PARTIES = spark \
+EMP = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.AR.HZ_PARTIES") \
+    .option("subscribe", "PRECDB.C##MYUSER.EMP") \
     .option("startingOffsets", "earliest") \
     .option("minPartitions",4) \
     .load()
 
-HZ_CUST_ACCOUNTS = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.AR.HZ_CUST_ACCOUNTS") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",4) \
-    .load()
+# HZ_CUST_ACCOUNTS = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "EBSPRE.AR.HZ_CUST_ACCOUNTS") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",4) \
+#     .load()
 
-HR_ALL_ORGANIZATION_UNITS = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.HR.HR_ALL_ORGANIZATION_UNITS") \
-    .option("minPartitions",4) \
-    .option("startingOffsets", "earliest") \
-    .load()
+# HR_ALL_ORGANIZATION_UNITS = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "EBSPRE.HR.HR_ALL_ORGANIZATION_UNITS") \
+#     .option("minPartitions",4) \
+#     .option("startingOffsets", "earliest") \
+#     .load()
 
-MTL_SYSTEM_ITEMS_B = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.INV.MTL_SYSTEM_ITEMS_B") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",4) \
-    .load()
+# MTL_SYSTEM_ITEMS_B = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "EBSPRE.INV.MTL_SYSTEM_ITEMS_B") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",4) \
+#     .load()
 
-OE_TRANSACTION_TYPES_ALL = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.ONT.OE_TRANSACTION_TYPES_ALL") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",4) \
-    .load()
+# OE_TRANSACTION_TYPES_ALL = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "EBSPRE.ONT.OE_TRANSACTION_TYPES_ALL") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",4) \
+#     .load()
 
-OE_TRANSACTION_TYPES_TL = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.ONT.OE_TRANSACTION_TYPES_TL") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",4) \
-    .load()
+# OE_TRANSACTION_TYPES_TL = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "EBSPRE.ONT.OE_TRANSACTION_TYPES_TL") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",4) \
+#     .load()
 
-OE_ORDER_HEADERS_ALL = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.ONT.OE_ORDER_HEADERS_ALL") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",4) \
-    .load()
+# OE_ORDER_HEADERS_ALL = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "EBSPRE.ONT.OE_ORDER_HEADERS_ALL") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",4) \
+#     .load()
 
-OE_ORDER_LINES_ALL = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.ONT.OE_ORDER_LINES_ALL") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",4) \
-    .load()
+# OE_ORDER_LINES_ALL = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "EBSPRE.ONT.OE_ORDER_LINES_ALL") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",4) \
+#     .load()
 
-with open('/opt/Confluent/schemas/hz_parties.json','r') as f:
+with open('/opt/Confluent/schemas/emp.json','r') as f:
   schema_HZP = f.read()
 
-with open('/opt/Confluent/schemas/hz_cust_accounts.json','r') as f:
-  schema_HZC = f.read()
+# with open('/opt/Confluent/schemas/hz_cust_accounts.json','r') as f:
+#   schema_HZC = f.read()
 
-with open('/opt/Confluent/schemas/hr_all_organization_units.json','r') as f:
-  schema_hr = f.read()
+# with open('/opt/Confluent/schemas/hr_all_organization_units.json','r') as f:
+#   schema_hr = f.read()
 
-with open('/opt/Confluent/schemas/mtl_system_items_b.json','r') as f:
-  schema_inv = f.read()
+# with open('/opt/Confluent/schemas/mtl_system_items_b.json','r') as f:
+#   schema_inv = f.read()
   
-with open('/opt/Confluent/schemas/oe_transaction_types_all.json','r') as f:
-  schema_oe_all = f.read()
+# with open('/opt/Confluent/schemas/oe_transaction_types_all.json','r') as f:
+#   schema_oe_all = f.read()
 
-with open('/opt/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
-  schema_oe_tl = f.read()
+# with open('/opt/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
+#   schema_oe_tl = f.read()
 
-with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
-  schema_oe_headers_all = f.read()
+# with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
+#   schema_oe_headers_all = f.read()
 
-with open('/opt/Confluent/schemas/oe_order_lines_all.json','r') as f:
-  schema_oe_lines_all = f.read()
+# with open('/opt/Confluent/schemas/oe_order_lines_all.json','r') as f:
+#   schema_oe_lines_all = f.read()
 
 # Perfectly Working
 hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
@@ -160,16 +160,16 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 
 print("ready to join")
 # Join
-# joining_result = ooh.join(ool, "HEADER_ID") \
-#     .join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
-#         .join(ottt, "TRANSACTION_TYPE_ID") \
-#             .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
-#                 .join(hp, "party_id") \
-#                     .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
-#                         .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
+joining_result = ooh.join(ool, "HEADER_ID") \
+    .join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
+        .join(ottt, "TRANSACTION_TYPE_ID") \
+            .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+                .join(hp, "party_id") \
+                    .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
+                        .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
 
 print("join successfull")
-# joining_result.printSchema()
+joining_result.printSchema()
 # print("ready to write on console")
 # query = joining_result \
 #     .writeStream \
@@ -203,12 +203,12 @@ print("join successfull")
 
 
 print("start to write")
-query = hp \
+query = joining_result \
             .selectExpr("CAST(struct(*) as string) AS value") \
             .writeStream \
             .format("kafka") \
             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-            .option("checkpointLocation", "check") \
+            .option("checkpointLocation", "checkk") \
             .option("topic", "complex_query") \
             .start().awaitTermination() 
 
