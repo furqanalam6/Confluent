@@ -213,7 +213,7 @@ print("join successfull")
 #             .start().awaitTermination() 
 
 # # write as avro
-hp.select(to_avro(struct("*"))).alias("value")\
+query = hp.select(to_avro(struct(hp.PARTY_ID))).alias("value")\
       .writeStream \
       .format("kafka") \
       .outputMode("append") \
