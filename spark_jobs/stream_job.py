@@ -195,15 +195,8 @@ print("join successfull")
 #     print("Iteration ")
 #     # intvl+=1
 
-
-
-# print("after iteration")
-# query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
-# query.awaitTermination()
-
-
-# print("start to write")
-query = hp \
+print("start to write")
+query =      hp \
             .selectExpr("CAST(to_json(struct(*)) as String) AS value") \
             .writeStream \
             .format("kafka") \
@@ -211,23 +204,4 @@ query = hp \
             .option("checkpointLocation", "c") \
             .option("topic", "complex_query2") \
             .start().awaitTermination() 
-# hp.printSchema()
-# # write as avro
-# query = hp.selectExpr("struct(hp.PARTY_ID) as value")\
-#       .writeStream \
-#       .format("kafka") \
-#       .outputMode("append") \
-#       .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#       .option("topic", "avro_data_topic_2") \
-#       .option("checkpointLocation","L") \
-#       .start() \
-#       .awaitTermination()
-# [PARTY_ID: bigint, TRANSACTION_TYPE_ID: double, HEADER_ID: double, ORDER_TYPE_ID: double, SHIP_FROM_ORG_ID: double, SOLD_TO_ORG_ID: double, ORDERED_DATE: date, CREATION_DATE: date, LAST_UPDATE_DATE: date, LINE_CATEGORY_CODE: string, UNIT_LIST_PRICE: double, ORDERED_QUANTITY: double, ORDERED_ITEM: string, ATTRIBUTE4: string, ATTRIBUTE6: string, CUST_ACCOUNT_ID: bigint, ORGANIZATION_ID: bigint, DESCRIPTION: string, SEGMENT1: string]
 
-# joining_result\
-#     .writeStream \
-#     .format("kafka") \
-#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#     .option("topic", "kontext-kafka-3") \
-#     .option("checkpointLocation", "checkpoint") \
-#     .start().awaitTermination()
