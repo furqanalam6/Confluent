@@ -18,15 +18,6 @@ spark = SparkSession \
 
 spark.sparkContext.setLogLevel('ERROR')
 
-h = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "complex_query1") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",4) \
-    .load()
-
 HZ_PARTIES = spark \
     .readStream \
     .format("kafka") \
@@ -212,14 +203,14 @@ print("join successfull")
 
 
 # print("start to write")
-# query = hp \
-#             .selectExpr("CAST(to_json(struct(*)) as String) AS value") \
-#             .writeStream \
-#             .format("kafka") \
-#             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#             .option("checkpointLocation", "c") \
-#             .option("topic", "complex_query1") \
-#             .start().awaitTermination() 
+query = hp \
+            .selectExpr("CAST(to_json(struct(*)) as String) AS value") \
+            .writeStream \
+            .format("kafka") \
+            .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+            .option("checkpointLocation", "c") \
+            .option("topic", "complex_query2") \
+            .start().awaitTermination() 
 h.printSchema()
 # hp.printSchema()
 # # write as avro
