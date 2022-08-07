@@ -213,7 +213,7 @@ query = hp \
             .start().awaitTermination() 
 
 # # write as avro
-hp.select(to_avro(struct("*"))) \
+hp.select(to_avro(struct("*"))).alias("value")\
       .writeStream \
       .format("kafka") \
       .outputMode("append") \
