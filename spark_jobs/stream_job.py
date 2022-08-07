@@ -211,10 +211,10 @@ print("join successfull")
 #             .option("checkpointLocation", "c") \
 #             .option("topic", "complex_query1") \
 #             .start().awaitTermination() 
-
+HZ_PARTIES.printSchema()
 hp.printSchema()
 # # write as avro
-query = hp.select(to_avro(struct(hp.PARTY_ID))).alias("VALUE")\
+query = hp.select(to_avro(struct(hp.PARTY_ID))).alias("Value")\
       .writeStream \
       .format("kafka") \
       .outputMode("append") \
