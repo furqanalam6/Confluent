@@ -18,6 +18,15 @@ spark = SparkSession \
 
 spark.sparkContext.setLogLevel('ERROR')
 
+h = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+    .option("subscribe", "complex_query1") \
+    .option("startingOffsets", "earliest") \
+    .option("minPartitions",4) \
+    .load()
+
 HZ_PARTIES = spark \
     .readStream \
     .format("kafka") \
@@ -200,14 +209,7 @@ print("join successfull")
 # print("after iteration")
 # query = joining_result.writeStream.outputMode("append").foreachBatch(writesql).start()
 # query.awaitTermination()
-h = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "complex_query1") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",4) \
-    .load()
+
 
 # print("start to write")
 # query = hp \
@@ -219,17 +221,17 @@ h = spark \
 #             .option("topic", "complex_query1") \
 #             .start().awaitTermination() 
 h.printSchema()
-hp.printSchema()
+# hp.printSchema()
 # # write as avro
-query = hp.selectExpr("struct(hp.PARTY_ID) as value")\
-      .writeStream \
-      .format("kafka") \
-      .outputMode("append") \
-      .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-      .option("topic", "avro_data_topic_2") \
-      .option("checkpointLocation","L") \
-      .start() \
-      .awaitTermination()
+# query = hp.selectExpr("struct(hp.PARTY_ID) as value")\
+#       .writeStream \
+#       .format("kafka") \
+#       .outputMode("append") \
+#       .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#       .option("topic", "avro_data_topic_2") \
+#       .option("checkpointLocation","L") \
+#       .start() \
+#       .awaitTermination()
 # [PARTY_ID: bigint, TRANSACTION_TYPE_ID: double, HEADER_ID: double, ORDER_TYPE_ID: double, SHIP_FROM_ORG_ID: double, SOLD_TO_ORG_ID: double, ORDERED_DATE: date, CREATION_DATE: date, LAST_UPDATE_DATE: date, LINE_CATEGORY_CODE: string, UNIT_LIST_PRICE: double, ORDERED_QUANTITY: double, ORDERED_ITEM: string, ATTRIBUTE4: string, ATTRIBUTE6: string, CUST_ACCOUNT_ID: bigint, ORGANIZATION_ID: bigint, DESCRIPTION: string, SEGMENT1: string]
 
 # joining_result\
