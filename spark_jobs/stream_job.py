@@ -202,6 +202,6 @@ query =      hp \
             .format("kafka") \
             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
             .option("checkpointLocation", "checkpoint-0") \
-            .option("topic", "complex_query2") \
+            .option("topic", "complex_query-1") \
             .start().awaitTermination() 
 
