@@ -197,11 +197,11 @@ print("join successfull")
 
 print("start to write")
 query =      hp \
-            .selectExpr("CAST(to_json(struct(*)) as String) AS value") \
+            .selectExpr("to_json(struct(*)) AS value") \
             .writeStream \
             .format("kafka") \
             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-            .option("checkpointLocation", "c") \
+            .option("checkpointLocation", "checkpoint-0") \
             .option("topic", "complex_query2") \
             .start().awaitTermination() 
 
