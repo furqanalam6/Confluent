@@ -21,7 +21,7 @@ HZ_PARTIES = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.AR.HZ_PARTIES") \
+    .option("subscribe", "SPROD.AR.HZ_PARTIES") \
     .option("startingOffsets", "earliest") \
     .load()
 
@@ -29,7 +29,7 @@ HZ_CUST_ACCOUNTS = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.AR.HZ_CUST_ACCOUNTS") \
+    .option("subscribe", "SPROD.AR.HZ_CUST_ACCOUNTS") \
     .option("startingOffsets", "earliest") \
     .load()
 
@@ -37,7 +37,7 @@ HR_ALL_ORGANIZATION_UNITS = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.HR.HR_ALL_ORGANIZATION_UNITS") \
+    .option("subscribe", "SPROD.HR.HR_ALL_ORGANIZATION_UNITS") \
     .option("startingOffsets", "earliest") \
     .load()
 
@@ -45,7 +45,7 @@ MTL_SYSTEM_ITEMS_B = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.INV.MTL_SYSTEM_ITEMS_B") \
+    .option("subscribe", "SPROD.INV.MTL_SYSTEM_ITEMS_B") \
     .option("startingOffsets", "earliest") \
     .load()
 
@@ -53,7 +53,7 @@ OE_TRANSACTION_TYPES_ALL = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.ONT.OE_TRANSACTION_TYPES_ALL") \
+    .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_ALL") \
     .option("startingOffsets", "earliest") \
     .load()
 
@@ -61,7 +61,7 @@ OE_TRANSACTION_TYPES_TL = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.ONT.OE_TRANSACTION_TYPES_TL") \
+    .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_TL") \
     .option("startingOffsets", "earliest") \
     .load()
 
@@ -69,7 +69,7 @@ OE_ORDER_HEADERS_ALL = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.ONT.OE_ORDER_HEADERS_ALL") \
+    .option("subscribe", "SPROD.ONT.OE_ORDER_HEADERS_ALL") \
     .option("startingOffsets", "earliest") \
     .load()
 
@@ -77,7 +77,7 @@ OE_ORDER_LINES_ALL = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "EBSPRE.ONT.OE_ORDER_LINES_ALL") \
+    .option("subscribe", "SPROD.ONT.OE_ORDER_LINES_ALL") \
     .option("startingOffsets", "earliest") \
     .load()
 

@@ -24,7 +24,7 @@ HZ_PARTIES = spark \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "SPROD.AR.HZ_PARTIES") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
+    .option("minPartitions",10) \
     .load()
 
 HZ_CUST_ACCOUNTS = spark \
@@ -33,7 +33,7 @@ HZ_CUST_ACCOUNTS = spark \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "SPROD.AR.HZ_CUST_ACCOUNTS") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
+    .option("minPartitions",10) \
     .load()
 
 HR_ALL_ORGANIZATION_UNITS = spark \
@@ -41,7 +41,7 @@ HR_ALL_ORGANIZATION_UNITS = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "SPROD.HR.HR_ALL_ORGANIZATION_UNITS") \
-    .option("minPartitions",20) \
+    .option("minPartitions",10) \
     .option("startingOffsets", "earliest") \
     .load()
 
@@ -51,7 +51,7 @@ MTL_SYSTEM_ITEMS_B = spark \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "SPROD.INV.MTL_SYSTEM_ITEMS_B") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
+    .option("minPartitions",10) \
     .load()
 
 OE_TRANSACTION_TYPES_ALL = spark \
@@ -60,7 +60,7 @@ OE_TRANSACTION_TYPES_ALL = spark \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_ALL") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
+    .option("minPartitions",10) \
     .load()
 
 OE_TRANSACTION_TYPES_TL = spark \
@@ -69,7 +69,7 @@ OE_TRANSACTION_TYPES_TL = spark \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_TL") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
+    .option("minPartitions",10) \
     .load()
 
 OE_ORDER_HEADERS_ALL = spark \
@@ -78,7 +78,7 @@ OE_ORDER_HEADERS_ALL = spark \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "SPROD.ONT.OE_ORDER_HEADERS_ALL") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
+    .option("minPartitions",10) \
     .load()
 
 OE_ORDER_LINES_ALL = spark \
@@ -87,7 +87,7 @@ OE_ORDER_LINES_ALL = spark \
     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
     .option("subscribe", "SPROD.ONT.OE_ORDER_LINES_ALL") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
+    .option("minPartitions",10) \
     .load()
 
 with open('/opt/Confluent/schemas/hz_parties.json','r') as f:
@@ -156,7 +156,7 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
             ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
                 , "ool.ORDERED_ITEM","ool.HEADER_ID") \
                     .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'") \
-                        .filter("ool.LAST_UPDATE_DATE >= '2022-01-01'")
+                        .filter("ool.LAST_UPDATE_DATE >= '1022-01-01'")
 
 print("ready to join")
 # Join
@@ -181,7 +181,7 @@ print("join successfull")
 # database = "STCC"
 # table = "dbo.device_sales_tables_new"
 # user = "SA"
-# password  = "MhffPOC2022"
+# password  = "MhffPOC1022"
 # # intvl = 0
 # def writesql(dff, epoch_id):
 #     dff.write.mode("overwrite") \
