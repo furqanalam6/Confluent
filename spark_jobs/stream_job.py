@@ -152,21 +152,21 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
 
 print("ready to join")
 # Join
-joining_result = ooh.join(ool, "HEADER_ID") \
-    .join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
-        .join(ottt, "TRANSACTION_TYPE_ID") \
-            .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
-                .join(hp, "party_id") \
-                    .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
-                        .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
+# joining_result = ooh.join(ool, "HEADER_ID") \
+#     .join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
+#         .join(ottt, "TRANSACTION_TYPE_ID") \
+#             .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+#                 .join(hp, "party_id") \
+#                     .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
+#                         .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
 
-print("join successfull")
+# print("join successfull")
 # joining_result.printSchema()
-# print("ready to write on console")
-# query = joining_result \
-#     .writeStream \
-#     .format("console") \
-#     .start().awaitTermination()
+print("ready to write on console")
+query = ottt \
+    .writeStream \
+    .format("console") \
+    .start().awaitTermination()
 
 # print("start to write")
 
