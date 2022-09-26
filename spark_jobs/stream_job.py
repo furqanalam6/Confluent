@@ -24,7 +24,7 @@ HZ_PARTIES = spark \
     .option("kafka.bootstrap.servers", "2.92.26.188:29093") \
     .option("subscribe", "SPROD.AR.HZ_PARTIES") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions"1) \
+    .option("minPartitions",1) \
     .load()
 
 HZ_CUST_ACCOUNTS = spark \
@@ -33,7 +33,7 @@ HZ_CUST_ACCOUNTS = spark \
     .option("kafka.bootstrap.servers", "2.92.26.188:29093") \
     .option("subscribe", "SPROD.AR.HZ_CUST_ACCOUNTS") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions"1) \
+    .option("minPartitions",1) \
     .load()
 
 HR_ALL_ORGANIZATION_UNITS = spark \
@@ -41,7 +41,7 @@ HR_ALL_ORGANIZATION_UNITS = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "2.92.26.188:29093") \
     .option("subscribe", "SPROD.HR.HR_ALL_ORGANIZATION_UNITS") \
-    .option("minPartitions"1) \
+    .option("minPartitions",1) \
     .option("startingOffsets", "earliest") \
     .load()
 
@@ -51,7 +51,7 @@ MTL_SYSTEM_ITEMS_B = spark \
     .option("kafka.bootstrap.servers", "2.92.26.188:29093") \
     .option("subscribe", "SPROD.INV.MTL_SYSTEM_ITEMS_B") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions"1) \
+    .option("minPartitions",1) \
     .load()
 
 OE_TRANSACTION_TYPES_ALL = spark \
@@ -60,7 +60,7 @@ OE_TRANSACTION_TYPES_ALL = spark \
     .option("kafka.bootstrap.servers", "2.92.26.188:29093") \
     .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_ALL") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions"1) \
+    .option("minPartitions",1) \
     .load()
 
 OE_TRANSACTION_TYPES_TL = spark \
@@ -69,7 +69,7 @@ OE_TRANSACTION_TYPES_TL = spark \
     .option("kafka.bootstrap.servers", "2.92.26.188:29093") \
     .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_TL") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions"1) \
+    .option("minPartitions",1) \
     .load()
 
 OE_ORDER_HEADERS_ALL = spark \
@@ -78,7 +78,7 @@ OE_ORDER_HEADERS_ALL = spark \
     .option("kafka.bootstrap.servers", "2.92.26.188:29093") \
     .option("subscribe", "SPROD.ONT.OE_ORDER_HEADERS_ALL") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions"1) \
+    .option("minPartitions",1) \
     .load()
 
 OE_ORDER_LINES_ALL = spark \
@@ -87,7 +87,7 @@ OE_ORDER_LINES_ALL = spark \
     .option("kafka.bootstrap.servers", "2.92.26.188:29093") \
     .option("subscribe", "SPROD.ONT.OE_ORDER_LINES_ALL") \
     .option("startingOffsets", "earliest") \
-    .option("minPartitions"1) \
+    .option("minPartitions",1) \
     .load()
 
 with open('/opt/Confluent/schemas/hz_parties.json','r') as f:
