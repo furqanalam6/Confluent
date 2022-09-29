@@ -208,6 +208,6 @@ query = joining_result \
             .format("kafka") \
             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
             .option("checkpointLocation", "checkpoint-location-12") \
-            .option("topic", "complex-query-result") \
+            .option("topic", "complex-query-result-0") \
             .start().awaitTermination() 
 
