@@ -178,10 +178,10 @@ joining_result = ooh.join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"])
 print("join successfull")
 # joining_result.printSchema()
 # print("ready to write on console")
-query = joining_result \
-    .writeStream \
-    .format("console") \
-    .start().awaitTermination()
+# query = joining_result \
+#     .writeStream \
+#     .format("console") \
+#     .start().awaitTermination()
 
 # print("start to write")
 
@@ -202,13 +202,13 @@ query = joining_result \
 #     print("Iteration ")
 #     # intvl+=1
 
-# print("start to write")
-# query = joining_result \
-#             .selectExpr("to_json(struct(*)) AS value") \
-#             .writeStream \
-#             .format("kafka") \
-#             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#             .option("checkpointLocation", "checkpoint-location-0") \
-#             .option("topic", "complex-query-result") \
-#             .start().awaitTermination() 
+print("start to write")
+query = joining_result \
+            .selectExpr("to_json(struct(*)) AS value") \
+            .writeStream \
+            .format("kafka") \
+            .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+            .option("checkpointLocation", "checkpoint-location-0") \
+            .option("topic", "complex-query-result") \
+            .start().awaitTermination() 
 
