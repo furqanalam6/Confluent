@@ -34,6 +34,7 @@ HZ_CUST_ACCOUNTS = spark \
     .option("subscribe", "SPROD.AR.HZ_CUST_ACCOUNTS") \
     .option("startingOffsets", "earliest") \
     .option("minPartitions",20) \
+    .option("mode", "PERMISSIVE") \
     .load()
 
 HR_ALL_ORGANIZATION_UNITS = spark \
