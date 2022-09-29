@@ -177,7 +177,7 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 # print("join successfull")
 # joining_result.printSchema()
 # print("ready to write on console")
-query = hp \
+query = hca \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
