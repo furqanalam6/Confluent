@@ -12,6 +12,14 @@
       "type": "long"
     },
     {
+      "name": "COST_ALLOCATION_KEYFLEX_ID",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
       "name": "LOCATION_ID",
       "type": [
         "null",
@@ -349,6 +357,14 @@
       "default": null
     },
     {
+      "name": "COMMENTS",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
       "name": "ATTRIBUTE21",
       "type": [
         "null",
@@ -425,14 +441,6 @@
       "type": [
         "null",
         "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "COST_ALLOCATION_KEYFLEX_ID_1",
-      "type": [
-        "null",
-        "long"
       ],
       "default": null
     },

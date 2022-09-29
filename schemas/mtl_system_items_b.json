@@ -1592,7 +1592,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 38,
+          "precision": 64,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -3101,10 +3101,6 @@
       "default": null
     },
     {
-      "name": "IB_ITEM_TRACKING_LEVEL",
-      "type": "string"
-    },
-    {
       "name": "MCC_CLASSIFICATION_TYPE",
       "type": [
         "null",
@@ -3116,172 +3112,22 @@
       "name": "MCC_CONTROL_CODE",
       "type": [
         "null",
-        "double"
+        {
+          "type": "bytes",
+          "scale": 0,
+          "precision": 64,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "0"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
       ],
       "default": null
     },
     {
       "name": "MCC_TRACKING_CODE",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE21",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE22",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE23",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE24",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE25",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE26",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE27",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE28",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE29",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE30",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE31",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE32",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE33",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE34",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE35",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE36",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE37",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE38",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE39",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "GLOBAL_ATTRIBUTE40",
       "type": [
         "null",
         "string"

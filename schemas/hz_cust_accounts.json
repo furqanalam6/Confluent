@@ -1108,46 +1108,6 @@
       "default": null
     },
     {
-      "name": "FEDERAL_ENTITY_TYPE",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "TRADING_PARTNER_AGENCY_ID",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "DUNS_EXTENSION",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "ADVANCE_PAYMENT_INDICATOR",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "CANCEL_UNSHIPPED_LINES_FLAG",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
       "name": "table",
       "type": [
         "null",

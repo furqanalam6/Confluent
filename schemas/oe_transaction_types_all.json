@@ -564,30 +564,6 @@
       "default": null
     },
     {
-      "name": "CREDIT_CARD_REV_REAUTH_CODE",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "USE_AME_APPROVAL",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "BILL_ONLY",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
       "name": "table",
       "type": [
         "null",

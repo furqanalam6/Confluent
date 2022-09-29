@@ -1432,6 +1432,22 @@
       "default": null
     },
     {
+      "name": "IB_CURRENT_LOCATION",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "IB_INSTALLED_AT_LOCATION",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
       "name": "ORDER_FIRMED_DATE",
       "type": [
         "null",
@@ -1441,46 +1457,6 @@
           "connect.name": "org.apache.kafka.connect.data.Date",
           "logicalType": "date"
         }
-      ],
-      "default": null
-    },
-    {
-      "name": "INST_ID",
-      "type": [
-        "null",
-        "double"
-      ],
-      "default": null
-    },
-    {
-      "name": "IB_INSTALLED_AT_LOCATION_1",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "IB_CURRENT_LOCATION_1",
-      "type": [
-        "null",
-        "string"
-      ],
-      "default": null
-    },
-    {
-      "name": "CSR_USER_ID",
-      "type": [
-        "null",
-        "double"
-      ],
-      "default": null
-    },
-    {
-      "name": "CANCEL_UNSHIPPED_LINES",
-      "type": [
-        "null",
-        "string"
       ],
       "default": null
     },
