@@ -159,7 +159,7 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 #                     .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'") 
                         # .filter("ool.LAST_UPDATE_DATE >= '2022-01-01'")
 
-# print("ready to join")
+print("ready to join")
 # Join
 # joining_result = ooh.join(ool, "HEADER_ID") \
 #     .join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
@@ -169,16 +169,16 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 #                     .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
 #                         .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
 
-# joining_result = ooh.join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
-#         .join(ottt, "TRANSACTION_TYPE_ID") \
-#             .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
-#                 .join(hp, "party_id") \
-#                     .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"])
+joining_result = ooh.join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
+        .join(ottt, "TRANSACTION_TYPE_ID") \
+            .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+                .join(hp, "party_id") \
+                    .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"])
                         # .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
-# print("join successfull")
+print("join successfull")
 # joining_result.printSchema()
 # print("ready to write on console")
-query = haou \
+query = joining_result \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
