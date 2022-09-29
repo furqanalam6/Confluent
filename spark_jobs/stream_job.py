@@ -81,14 +81,14 @@ OE_ORDER_HEADERS_ALL = spark \
     .option("minPartitions",20) \
     .load()
 
-OE_ORDER_LINES_ALL = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "SPROD.ONT.OE_ORDER_LINES_ALL") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
-    .load()
+# OE_ORDER_LINES_ALL = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "SPROD.ONT.OE_ORDER_LINES_ALL") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",20) \
+#     .load()
 
 with open('/opt/Confluent/schemas/hz_parties.json','r') as f:
   schema_HZP = f.read()
@@ -111,8 +111,8 @@ with open('/opt/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
 with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
   schema_oe_headers_all = f.read()
 
-with open('/opt/Confluent/schemas/oe_order_lines_all.json','r') as f:
-  schema_oe_lines_all = f.read()
+# with open('/opt/Confluent/schemas/oe_order_lines_all.json','r') as f:
+#   schema_oe_lines_all = f.read()
 
 # Perfectly Working
 hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
@@ -150,12 +150,12 @@ ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
             ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE") 
 
 # Perfectly Working
-ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
-    .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
-        .select( "ool.CREATION_DATE", "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
-            ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
-                , "ool.ORDERED_ITEM","ool.HEADER_ID") \
-                    .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'") 
+# ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
+#     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
+#         .select( "ool.CREATION_DATE", "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
+#             ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
+#                 , "ool.ORDERED_ITEM","ool.HEADER_ID") \
+#                     .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'") 
                         # .filter("ool.LAST_UPDATE_DATE >= '2022-01-01'")
 
 print("ready to join")
