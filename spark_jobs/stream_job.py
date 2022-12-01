@@ -73,14 +73,14 @@ OE_TRANSACTION_TYPES_TL = spark \
     .option("minPartitions",20) \
     .load()
 
-# OE_ORDER_HEADERS_ALL = spark \
-#     .readStream \
-#     .format("kafka") \
-#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#     .option("subscribe", "SPROD.ONT.OE_ORDER_HEADERS_ALL") \
-#     .option("startingOffsets", "earliest") \
-#     .option("minPartitions",20) \
-#     .load()
+OE_ORDER_HEADERS_ALL = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+    .option("subscribe", "SPROD.ONT.OE_ORDER_HEADERS_ALL") \
+    .option("startingOffsets", "earliest") \
+    .option("minPartitions",20) \
+    .load()
 
 # OE_ORDER_LINES_ALL = spark \
 #     .readStream \
@@ -109,8 +109,8 @@ with open('/opt/Confluent/schemas/oe_transaction_types_all.json','r') as f:
 with open('/opt/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
   schema_oe_tl = f.read()
 
-# with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
-#   schema_oe_headers_all = f.read()
+with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
+  schema_oe_headers_all = f.read()
 
 # with open('/opt/Confluent/schemas/oe_order_lines_all.json','r') as f:
 #   schema_oe_lines_all = f.read()
@@ -129,7 +129,7 @@ haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
         .select("haou.ORGANIZATION_ID") \
             .filter("haou.BUSINESS_GROUP_ID = 101")
 
-# # yet to test
+# Perfectly Working
 inv = MTL_SYSTEM_ITEMS_B.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_inv).alias("inv")) \
         .select("inv.DESCRIPTION", "inv.SEGMENT1") \
@@ -145,10 +145,10 @@ ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
         .select("ottt.TRANSACTION_TYPE_ID") \
             .filter("ottt.LANGUAGE = 'US'")
 # # Perfectly Working
-# ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
-#     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
-#         .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
-#             ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE") 
+ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
+    .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
+        .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
+            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE") 
 
 # Perfectly Working
 # ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
@@ -178,7 +178,7 @@ print("ready to join")
 # print("join successfull")
 # joining_result.printSchema()
 print("ready to write on console")
-query = ottt \
+query = ooh \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
