@@ -37,14 +37,14 @@ HZ_CUST_ACCOUNTS = spark \
     .option("mode", "DROPMALFORMED") \
     .load()
 
-# HR_ALL_ORGANIZATION_UNITS = spark \
-#     .readStream \
-#     .format("kafka") \
-#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#     .option("subscribe", "SPROD.HR.HR_ALL_ORGANIZATION_UNITS") \
-#     .option("minPartitions",20) \
-#     .option("startingOffsets", "earliest") \
-#     .load()
+HR_ALL_ORGANIZATION_UNITS = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+    .option("subscribe", "SPROD.HR.HR_ALL_ORGANIZATION_UNITS") \
+    .option("minPartitions",20) \
+    .option("startingOffsets", "earliest") \
+    .load()
 
 # MTL_SYSTEM_ITEMS_B = spark \
 #     .readStream \
@@ -97,8 +97,8 @@ with open('/opt/Confluent/schemas/hz_parties.json','r') as f:
 with open('/opt/Confluent/schemas/hz_cust_accounts.json','r') as f:
   schema_HZC = f.read()
 
-# with open('/opt/Confluent/schemas/hr_all_organization_units.json','r') as f:
-#   schema_hr = f.read()
+with open('/opt/Confluent/schemas/hr_all_organization_units.json','r') as f:
+  schema_hr = f.read()
 
 # with open('/opt/Confluent/schemas/mtl_system_items_b.json','r') as f:
 #   schema_inv = f.read()
@@ -124,10 +124,10 @@ hca = HZ_CUST_ACCOUNTS.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_HZC).alias("hca")) \
       .select("hca.PARTY_ID", "hca.CUST_ACCOUNT_ID")
 # # Perfectly Working
-# haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
-#     .select(from_avro(col("value"), schema_hr).alias("haou")) \
-#         .select("haou.ORGANIZATION_ID") \
-#             .filter("haou.BUSINESS_GROUP_ID = 101")
+haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
+    .select(from_avro(col("value"), schema_hr).alias("haou")) \
+        .select("haou.ORGANIZATION_ID") \
+            .filter("haou.BUSINESS_GROUP_ID = 101")
 
 # # yet to test
 # inv = MTL_SYSTEM_ITEMS_B.selectExpr("substring(value, 6) as value") \
@@ -178,7 +178,7 @@ print("ready to join")
 # print("join successfull")
 # joining_result.printSchema()
 print("ready to write on console")
-query = hca \
+query = haou \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
