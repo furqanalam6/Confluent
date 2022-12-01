@@ -1,0 +1,18 @@
+#Get Schemas
+curl -s -X GET http://localhost:8081/subjects/SPROD.ONT.OE_ORDER_LINES_ALL-value/versions/1 | jq -r .schema | jq . >> oe_order_lines_all.json
+
+curl -s -X GET http://localhost:8081/subjects/SPROD.ONT.OE_TRANSACTION_TYPES_ALL-value/versions/1 | jq -r .schema | jq . >> oe_transaction_types_all.json
+
+curl -s -X GET http://localhost:8081/subjects/SPROD.ONT.OE_ORDER_HEADERS_ALL-value/versions/1 | jq -r .schema | jq . > oe_order_headers_all.json
+
+curl -s -X GET http://localhost:8081/subjects/SPROD.ONT.OE_TRANSACTION_TYPES_TL-value/versions/1 | jq -r .schema | jq . >> oe_transaction_types_tl.json
+
+curl -s -X GET http://localhost:8081/subjects/SPROD.AR.HZ_CUST_ACCOUNTS-value/versions/1 | jq -r .schema | jq . >> hz_cust_accounts.json
+
+curl -s -X GET http://localhost:8081/subjects/SPROD.AR.HZ_PARTIES-value/versions/1 | jq -r .schema | jq . >> hz_parties.json
+
+curl -s -X GET http://localhost:8081/subjects/SPROD.HR.HR_ALL_ORGANIZATION_UNITS-value/versions/1 | jq -r .schema | jq . >> hr_all_organization_units.json
+
+curl -s -X GET http://localhost:8081/subjects/SPROD.INV.MTL_SYSTEM_ITEMS_B-value/versions/1 | jq -r .schema | jq . >> mtl_system_items_b.json
+
+#curl -s -X GET http://localhost:8081/subjects/PRECDB.C##MYUSER.EMP-value/versions/1 | jq -r .schema | jq . >> emp.json
