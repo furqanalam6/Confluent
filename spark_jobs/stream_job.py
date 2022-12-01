@@ -64,14 +64,14 @@ OE_TRANSACTION_TYPES_ALL = spark \
     .option("minPartitions",20) \
     .load()
 
-# OE_TRANSACTION_TYPES_TL = spark \
-#     .readStream \
-#     .format("kafka") \
-#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#     .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_TL") \
-#     .option("startingOffsets", "earliest") \
-#     .option("minPartitions",20) \
-#     .load()
+OE_TRANSACTION_TYPES_TL = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+    .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_TL") \
+    .option("startingOffsets", "earliest") \
+    .option("minPartitions",20) \
+    .load()
 
 # OE_ORDER_HEADERS_ALL = spark \
 #     .readStream \
@@ -106,8 +106,8 @@ with open('/opt/Confluent/schemas/mtl_system_items_b.json','r') as f:
 with open('/opt/Confluent/schemas/oe_transaction_types_all.json','r') as f:
   schema_oe_all = f.read()
 
-# with open('/opt/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
-#   schema_oe_tl = f.read()
+with open('/opt/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
+  schema_oe_tl = f.read()
 
 # with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
 #   schema_oe_headers_all = f.read()
@@ -140,10 +140,10 @@ ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_all).alias("ot")) \
         .select("ot.TRANSACTION_TYPE_ID", "ot.ATTRIBUTE4", "ot.ATTRIBUTE6")
 # Perfectly Working
-# ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
-#     .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
-#         .select("ottt.TRANSACTION_TYPE_ID") \
-#             .filter("ottt.LANGUAGE = 'US'")
+ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
+    .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
+        .select("ottt.TRANSACTION_TYPE_ID") \
+            .filter("ottt.LANGUAGE = 'US'")
 # # Perfectly Working
 # ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
 #     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
@@ -178,7 +178,7 @@ print("ready to join")
 # print("join successfull")
 # joining_result.printSchema()
 print("ready to write on console")
-query = ot \
+query = ottt \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
