@@ -178,7 +178,7 @@ print("ready to join")
 # print("join successfull")
 # joining_result.printSchema()
 print("ready to write on console")
-query = ool \
+query = ooh \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
