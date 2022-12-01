@@ -55,14 +55,14 @@ MTL_SYSTEM_ITEMS_B = spark \
     .option("minPartitions",20) \
     .load()
 
-# OE_TRANSACTION_TYPES_ALL = spark \
-#     .readStream \
-#     .format("kafka") \
-#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#     .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_ALL") \
-#     .option("startingOffsets", "earliest") \
-#     .option("minPartitions",20) \
-#     .load()
+OE_TRANSACTION_TYPES_ALL = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+    .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_ALL") \
+    .option("startingOffsets", "earliest") \
+    .option("minPartitions",20) \
+    .load()
 
 # OE_TRANSACTION_TYPES_TL = spark \
 #     .readStream \
@@ -103,8 +103,8 @@ with open('/opt/Confluent/schemas/hr_all_organization_units.json','r') as f:
 with open('/opt/Confluent/schemas/mtl_system_items_b.json','r') as f:
   schema_inv = f.read()
   
-# with open('/opt/Confluent/schemas/oe_transaction_types_all.json','r') as f:
-#   schema_oe_all = f.read()
+with open('/opt/Confluent/schemas/oe_transaction_types_all.json','r') as f:
+  schema_oe_all = f.read()
 
 # with open('/opt/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
 #   schema_oe_tl = f.read()
@@ -136,9 +136,9 @@ inv = MTL_SYSTEM_ITEMS_B.selectExpr("substring(value, 6) as value") \
             .filter("inv.ORGANIZATION_ID = 105")
 
 # Perfectly Working
-# ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
-#     .select(from_avro(col("value"), schema_oe_all).alias("ot")) \
-#         .select("ot.TRANSACTION_TYPE_ID", "ot.ATTRIBUTE4", "ot.ATTRIBUTE6")
+ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
+    .select(from_avro(col("value"), schema_oe_all).alias("ot")) \
+        .select("ot.TRANSACTION_TYPE_ID", "ot.ATTRIBUTE4", "ot.ATTRIBUTE6")
 # Perfectly Working
 # ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
 #     .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
@@ -178,7 +178,7 @@ print("ready to join")
 # print("join successfull")
 # joining_result.printSchema()
 print("ready to write on console")
-query = inv \
+query = ot \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
