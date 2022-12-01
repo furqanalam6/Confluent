@@ -46,14 +46,14 @@ HR_ALL_ORGANIZATION_UNITS = spark \
     .option("startingOffsets", "earliest") \
     .load()
 
-# MTL_SYSTEM_ITEMS_B = spark \
-#     .readStream \
-#     .format("kafka") \
-#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#     .option("subscribe", "SPROD.INV.MTL_SYSTEM_ITEMS_B") \
-#     .option("startingOffsets", "earliest") \
-#     .option("minPartitions",20) \
-#     .load()
+MTL_SYSTEM_ITEMS_B = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+    .option("subscribe", "SPROD.INV.MTL_SYSTEM_ITEMS_B") \
+    .option("startingOffsets", "earliest") \
+    .option("minPartitions",20) \
+    .load()
 
 # OE_TRANSACTION_TYPES_ALL = spark \
 #     .readStream \
@@ -100,8 +100,8 @@ with open('/opt/Confluent/schemas/hz_cust_accounts.json','r') as f:
 with open('/opt/Confluent/schemas/hr_all_organization_units.json','r') as f:
   schema_hr = f.read()
 
-# with open('/opt/Confluent/schemas/mtl_system_items_b.json','r') as f:
-#   schema_inv = f.read()
+with open('/opt/Confluent/schemas/mtl_system_items_b.json','r') as f:
+  schema_inv = f.read()
   
 # with open('/opt/Confluent/schemas/oe_transaction_types_all.json','r') as f:
 #   schema_oe_all = f.read()
@@ -130,10 +130,10 @@ haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
             .filter("haou.BUSINESS_GROUP_ID = 101")
 
 # # yet to test
-# inv = MTL_SYSTEM_ITEMS_B.selectExpr("substring(value, 6) as value") \
-#     .select(from_avro(col("value"), schema_inv).alias("inv")) \
-#         .select("inv.DESCRIPTION", "inv.SEGMENT1") \
-#             .filter("inv.ORGANIZATION_ID = 105")
+inv = MTL_SYSTEM_ITEMS_B.selectExpr("substring(value, 6) as value") \
+    .select(from_avro(col("value"), schema_inv).alias("inv")) \
+        .select("inv.DESCRIPTION", "inv.SEGMENT1") \
+            .filter("inv.ORGANIZATION_ID = 105")
 
 # Perfectly Working
 # ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
@@ -178,7 +178,7 @@ print("ready to join")
 # print("join successfull")
 # joining_result.printSchema()
 print("ready to write on console")
-query = haou \
+query = inv \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
