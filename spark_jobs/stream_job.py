@@ -27,60 +27,60 @@ HZ_PARTIES = spark \
     .option("minPartitions",20) \
     .load()
 
-HZ_CUST_ACCOUNTS = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "SPROD.AR.HZ_CUST_ACCOUNTS") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
-    .option("mode", "DROPMALFORMED") \
-    .load()
+# HZ_CUST_ACCOUNTS = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "SPROD.AR.HZ_CUST_ACCOUNTS") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",20) \
+#     .option("mode", "DROPMALFORMED") \
+#     .load()
 
-HR_ALL_ORGANIZATION_UNITS = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "SPROD.HR.HR_ALL_ORGANIZATION_UNITS") \
-    .option("minPartitions",20) \
-    .option("startingOffsets", "earliest") \
-    .load()
+# HR_ALL_ORGANIZATION_UNITS = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "SPROD.HR.HR_ALL_ORGANIZATION_UNITS") \
+#     .option("minPartitions",20) \
+#     .option("startingOffsets", "earliest") \
+#     .load()
 
-MTL_SYSTEM_ITEMS_B = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "SPROD.INV.MTL_SYSTEM_ITEMS_B") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
-    .load()
+# MTL_SYSTEM_ITEMS_B = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "SPROD.INV.MTL_SYSTEM_ITEMS_B") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",20) \
+#     .load()
 
-OE_TRANSACTION_TYPES_ALL = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_ALL") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
-    .load()
+# OE_TRANSACTION_TYPES_ALL = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_ALL") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",20) \
+#     .load()
 
-OE_TRANSACTION_TYPES_TL = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_TL") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
-    .load()
+# OE_TRANSACTION_TYPES_TL = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "SPROD.ONT.OE_TRANSACTION_TYPES_TL") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",20) \
+#     .load()
 
-OE_ORDER_HEADERS_ALL = spark \
-    .readStream \
-    .format("kafka") \
-    .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-    .option("subscribe", "SPROD.ONT.OE_ORDER_HEADERS_ALL") \
-    .option("startingOffsets", "earliest") \
-    .option("minPartitions",20) \
-    .load()
+# OE_ORDER_HEADERS_ALL = spark \
+#     .readStream \
+#     .format("kafka") \
+#     .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#     .option("subscribe", "SPROD.ONT.OE_ORDER_HEADERS_ALL") \
+#     .option("startingOffsets", "earliest") \
+#     .option("minPartitions",20) \
+#     .load()
 
 # OE_ORDER_LINES_ALL = spark \
 #     .readStream \
@@ -94,23 +94,23 @@ OE_ORDER_HEADERS_ALL = spark \
 with open('/opt/Confluent/schemas/hz_parties.json','r') as f:
   schema_HZP = f.read()
 
-with open('/opt/Confluent/schemas/hz_cust_accounts.json','r') as f:
-  schema_HZC = f.read()
+# with open('/opt/Confluent/schemas/hz_cust_accounts.json','r') as f:
+#   schema_HZC = f.read()
 
-with open('/opt/Confluent/schemas/hr_all_organization_units.json','r') as f:
-  schema_hr = f.read()
+# with open('/opt/Confluent/schemas/hr_all_organization_units.json','r') as f:
+#   schema_hr = f.read()
 
-with open('/opt/Confluent/schemas/mtl_system_items_b.json','r') as f:
-  schema_inv = f.read()
+# with open('/opt/Confluent/schemas/mtl_system_items_b.json','r') as f:
+#   schema_inv = f.read()
   
-with open('/opt/Confluent/schemas/oe_transaction_types_all.json','r') as f:
-  schema_oe_all = f.read()
+# with open('/opt/Confluent/schemas/oe_transaction_types_all.json','r') as f:
+#   schema_oe_all = f.read()
 
-with open('/opt/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
-  schema_oe_tl = f.read()
+# with open('/opt/Confluent/schemas/oe_transaction_types_tl.json','r') as f:
+#   schema_oe_tl = f.read()
 
-with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
-  schema_oe_headers_all = f.read()
+# with open('/opt/Confluent/schemas/oe_order_headers_all.json','r') as f:
+#   schema_oe_headers_all = f.read()
 
 # with open('/opt/Confluent/schemas/oe_order_lines_all.json','r') as f:
 #   schema_oe_lines_all = f.read()
@@ -120,35 +120,35 @@ hp = HZ_PARTIES.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_HZP).alias("hp")) \
        .select("hp.PARTY_ID")
 # Perfectly Working
-hca = HZ_CUST_ACCOUNTS.selectExpr("substring(value, 6) as value") \
-    .select(from_avro(col("value"), schema_HZC).alias("hca")) \
-      .select("hca.PARTY_ID", "hca.CUST_ACCOUNT_ID")
-# Perfectly Working
-haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
-    .select(from_avro(col("value"), schema_hr).alias("haou")) \
-        .select("haou.ORGANIZATION_ID") \
-            .filter("haou.BUSINESS_GROUP_ID = 101")
+# hca = HZ_CUST_ACCOUNTS.selectExpr("substring(value, 6) as value") \
+#     .select(from_avro(col("value"), schema_HZC).alias("hca")) \
+#       .select("hca.PARTY_ID", "hca.CUST_ACCOUNT_ID")
+# # Perfectly Working
+# haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
+#     .select(from_avro(col("value"), schema_hr).alias("haou")) \
+#         .select("haou.ORGANIZATION_ID") \
+#             .filter("haou.BUSINESS_GROUP_ID = 101")
 
-# yet to test
-inv = MTL_SYSTEM_ITEMS_B.selectExpr("substring(value, 6) as value") \
-    .select(from_avro(col("value"), schema_inv).alias("inv")) \
-        .select("inv.DESCRIPTION", "inv.SEGMENT1") \
-            .filter("inv.ORGANIZATION_ID = 105")
+# # yet to test
+# inv = MTL_SYSTEM_ITEMS_B.selectExpr("substring(value, 6) as value") \
+#     .select(from_avro(col("value"), schema_inv).alias("inv")) \
+#         .select("inv.DESCRIPTION", "inv.SEGMENT1") \
+#             .filter("inv.ORGANIZATION_ID = 105")
 
 # Perfectly Working
-ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
-    .select(from_avro(col("value"), schema_oe_all).alias("ot")) \
-        .select("ot.TRANSACTION_TYPE_ID", "ot.ATTRIBUTE4", "ot.ATTRIBUTE6")
+# ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
+#     .select(from_avro(col("value"), schema_oe_all).alias("ot")) \
+#         .select("ot.TRANSACTION_TYPE_ID", "ot.ATTRIBUTE4", "ot.ATTRIBUTE6")
 # Perfectly Working
-ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
-    .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
-        .select("ottt.TRANSACTION_TYPE_ID") \
-            .filter("ottt.LANGUAGE = 'US'")
-# Perfectly Working
-ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
-    .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
-        .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
-            ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE") 
+# ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
+#     .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
+#         .select("ottt.TRANSACTION_TYPE_ID") \
+#             .filter("ottt.LANGUAGE = 'US'")
+# # Perfectly Working
+# ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
+#     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
+#         .select("ooh.HEADER_ID" ,"ooh.ORDER_TYPE_ID" ,"ooh.SHIP_FROM_ORG_ID" \
+#             ,"ooh.SOLD_TO_ORG_ID" ,"ooh.ORDERED_DATE") 
 
 # Perfectly Working
 # ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
@@ -169,19 +169,19 @@ print("ready to join")
 #                     .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
 #                         .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
 
-joining_result = ooh.join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
-        .join(ottt, "TRANSACTION_TYPE_ID") \
-            .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
-                .join(hp, "party_id") \
-                    .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"])
-                        # .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
-print("join successfull")
+# joining_result = ooh.join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
+#         .join(ottt, "TRANSACTION_TYPE_ID") \
+#             .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+#                 .join(hp, "party_id") \
+#                     .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"])
+#                         # .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
+# print("join successfull")
 # joining_result.printSchema()
-# print("ready to write on console")
-# query = joining_result \
-#     .writeStream \
-#     .format("console") \
-#     .start().awaitTermination()
+print("ready to write on console")
+query = hp \
+    .writeStream \
+    .format("console") \
+    .start().awaitTermination()
 
 # print("start to write")
 
@@ -202,13 +202,13 @@ print("join successfull")
 #     print("Iteration ")
 #     # intvl+=1
 
-print("start to write")
-query = joining_result \
-            .selectExpr("to_json(struct(*)) AS value") \
-            .writeStream \
-            .format("kafka") \
-            .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-            .option("checkpointLocation", "checkpoint-location-2") \
-            .option("topic", "complex-query-result") \
-            .start().awaitTermination() 
+# print("start to write")
+# query = joining_result \
+#             .selectExpr("to_json(struct(*)) AS value") \
+#             .writeStream \
+#             .format("kafka") \
+#             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+#             .option("checkpointLocation", "checkpoint-location-2") \
+#             .option("topic", "complex-query-result") \
+#             .start().awaitTermination() 
 
