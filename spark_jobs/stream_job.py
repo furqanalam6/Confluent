@@ -126,14 +126,14 @@ hca = HZ_CUST_ACCOUNTS.selectExpr("substring(value, 6) as value") \
 # # Perfectly Working
 haou = HR_ALL_ORGANIZATION_UNITS.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_hr).alias("haou")) \
-        .select("haou.ORGANIZATION_ID") \
-            .filter("haou.BUSINESS_GROUP_ID = 101")
+        .select("haou.ORGANIZATION_ID") 
+            # .filter("haou.BUSINESS_GROUP_ID = 101")
 
 # Perfectly Working
 inv = MTL_SYSTEM_ITEMS_B.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_inv).alias("inv")) \
-        .select("inv.DESCRIPTION", "inv.SEGMENT1") \
-            .filter("inv.ORGANIZATION_ID = 105")
+        .select("inv.DESCRIPTION", "inv.SEGMENT1") 
+            # .filter("inv.ORGANIZATION_ID = 105")
 
 # Perfectly Working
 ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
@@ -142,8 +142,8 @@ ot = OE_TRANSACTION_TYPES_ALL.selectExpr("substring(value, 6) as value") \
 # Perfectly Working
 ottt = OE_TRANSACTION_TYPES_TL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_tl).alias("ottt")) \
-        .select("ottt.TRANSACTION_TYPE_ID") \
-            .filter("ottt.LANGUAGE = 'US'")
+        .select("ottt.TRANSACTION_TYPE_ID") 
+            # .filter("ottt.LANGUAGE = 'US'")
 # # Perfectly Working
 ooh = OE_ORDER_HEADERS_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_headers_all).alias("ooh")) \
@@ -155,19 +155,19 @@ ool = OE_ORDER_LINES_ALL.selectExpr("substring(value, 6) as value") \
     .select(from_avro(col("value"), schema_oe_lines_all).alias("ool")) \
         .select( "ool.CREATION_DATE", "ool.LAST_UPDATE_DATE", "ool.LINE_CATEGORY_CODE" \
             ,  "ool.UNIT_LIST_PRICE", "ool.ORDERED_QUANTITY" \
-                , "ool.ORDERED_ITEM","ool.HEADER_ID") \
-                    .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'") 
+                , "ool.ORDERED_ITEM","ool.HEADER_ID") 
+                    # .filter("ool.FLOW_STATUS_CODE  = 'CLOSED'") 
                         # .filter("ool.LAST_UPDATE_DATE >= '2022-01-01'")
 
 print("ready to join")
 # Join
-# joining_result = ooh.join(ool, "HEADER_ID") \
-#     .join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
-#         .join(ottt, "TRANSACTION_TYPE_ID") \
-#             .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
-#                 .join(hp, "party_id") \
-#                     .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
-#                         .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
+joining_result = ooh.join(ool, "HEADER_ID") \
+    .join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
+        .join(ottt, "TRANSACTION_TYPE_ID") \
+            .join(hca, hca["CUST_ACCOUNT_ID"] == ooh["SOLD_TO_ORG_ID"]) \
+                .join(hp, "party_id") \
+                    .join(haou, ooh["SHIP_FROM_ORG_ID"] == haou["ORGANIZATION_ID"]) \
+                        .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
 
 # joining_result = ooh.join(ot, ot["TRANSACTION_TYPE_ID"] == ooh["ORDER_TYPE_ID"]) \
 #         .join(ottt, "TRANSACTION_TYPE_ID") \
@@ -178,7 +178,7 @@ print("ready to join")
 # print("join successfull")
 # joining_result.printSchema()
 print("ready to write on console")
-query = ooh \
+query = joining_result \
     .writeStream \
     .format("console") \
     .start().awaitTermination()
