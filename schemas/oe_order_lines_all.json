@@ -5,77 +5,27 @@
   "fields": [
     {
       "name": "LINE_ID",
-      "type": {
-        "type": "bytes",
-        "scale": 127,
-        "precision": 32,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "127"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
+      "type": "double"
     },
     {
       "name": "ORG_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
     {
       "name": "HEADER_ID",
-      "type": {
-        "type": "bytes",
-        "scale": 127,
-        "precision": 32,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "127"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
+      "type": "double"
     },
     {
       "name": "LINE_TYPE_ID",
-      "type": {
-        "type": "bytes",
-        "scale": 127,
-        "precision": 32,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "127"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
+      "type": "double"
     },
     {
       "name": "LINE_NUMBER",
-      "type": {
-        "type": "bytes",
-        "scale": 127,
-        "precision": 32,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "127"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
+      "type": "double"
     },
     {
       "name": "ORDERED_ITEM",
@@ -136,17 +86,7 @@
       "name": "PRICING_QUANTITY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -162,17 +102,7 @@
       "name": "CANCELLED_QUANTITY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -180,17 +110,7 @@
       "name": "SHIPPED_QUANTITY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -198,17 +118,7 @@
       "name": "ORDERED_QUANTITY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -216,17 +126,7 @@
       "name": "FULFILLED_QUANTITY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -234,17 +134,7 @@
       "name": "SHIPPING_QUANTITY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -260,17 +150,7 @@
       "name": "DELIVERY_LEAD_TIME",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -302,17 +182,7 @@
       "name": "SHIP_FROM_ORG_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -320,17 +190,7 @@
       "name": "SHIP_TO_ORG_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -338,17 +198,7 @@
       "name": "INVOICE_TO_ORG_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -356,17 +206,7 @@
       "name": "DELIVER_TO_ORG_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -374,17 +214,7 @@
       "name": "SHIP_TO_CONTACT_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -392,17 +222,7 @@
       "name": "DELIVER_TO_CONTACT_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -410,17 +230,7 @@
       "name": "INVOICE_TO_CONTACT_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -428,17 +238,7 @@
       "name": "INTMED_SHIP_TO_ORG_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -446,17 +246,7 @@
       "name": "INTMED_SHIP_TO_CONTACT_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -464,17 +254,7 @@
       "name": "SOLD_FROM_ORG_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -482,17 +262,7 @@
       "name": "SOLD_TO_ORG_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -508,17 +278,7 @@
       "name": "SHIP_TOLERANCE_ABOVE",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -526,17 +286,7 @@
       "name": "SHIP_TOLERANCE_BELOW",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -552,17 +302,7 @@
       "name": "VEH_CUS_ITEM_CUM_KEY_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -610,17 +350,7 @@
       "name": "PROJECT_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -628,33 +358,13 @@
       "name": "TASK_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
     {
       "name": "INVENTORY_ITEM_ID",
-      "type": {
-        "type": "bytes",
-        "scale": 127,
-        "precision": 32,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "127"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
+      "type": "double"
     },
     {
       "name": "TAX_DATE",
@@ -681,17 +391,7 @@
       "name": "TAX_RATE",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -715,17 +415,7 @@
       "name": "PRICE_LIST_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -744,33 +434,13 @@
     },
     {
       "name": "SHIPMENT_NUMBER",
-      "type": {
-        "type": "bytes",
-        "scale": 127,
-        "precision": 32,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "127"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
+      "type": "double"
     },
     {
       "name": "AGREEMENT_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -850,17 +520,7 @@
       "name": "SOURCE_DOCUMENT_TYPE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -876,17 +536,7 @@
       "name": "SOURCE_DOCUMENT_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -902,17 +552,7 @@
       "name": "SOURCE_DOCUMENT_LINE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -920,17 +560,7 @@
       "name": "REFERENCE_LINE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -946,17 +576,7 @@
       "name": "REFERENCE_HEADER_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -972,17 +592,7 @@
       "name": "UNIT_SELLING_PRICE",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -990,17 +600,7 @@
       "name": "UNIT_LIST_PRICE",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -1008,17 +608,7 @@
       "name": "TAX_VALUE",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -1665,17 +1255,7 @@
     },
     {
       "name": "CREATED_BY",
-      "type": {
-        "type": "bytes",
-        "scale": 127,
-        "precision": 32,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "127"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
+      "type": "double"
     },
     {
       "name": "LAST_UPDATE_DATE",
@@ -1688,33 +1268,13 @@
     },
     {
       "name": "LAST_UPDATED_BY",
-      "type": {
-        "type": "bytes",
-        "scale": 127,
-        "precision": 32,
-        "connect.version": 1,
-        "connect.parameters": {
-          "scale": "127"
-        },
-        "connect.name": "org.apache.kafka.connect.data.Decimal",
-        "logicalType": "decimal"
-      }
+      "type": "double"
     },
     {
       "name": "LAST_UPDATE_LOGIN",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -1722,17 +1282,7 @@
       "name": "PROGRAM_APPLICATION_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -1740,17 +1290,7 @@
       "name": "PROGRAM_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -1771,17 +1311,7 @@
       "name": "REQUEST_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -1789,17 +1319,7 @@
       "name": "TOP_MODEL_LINE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -1807,17 +1327,7 @@
       "name": "LINK_TO_LINE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -1825,17 +1335,7 @@
       "name": "COMPONENT_SEQUENCE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -1851,17 +1351,7 @@
       "name": "CONFIG_DISPLAY_SEQUENCE",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -1885,17 +1375,7 @@
       "name": "OPTION_NUMBER",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -1944,17 +1424,7 @@
       "name": "CUSTOMER_TRX_LINE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2103,17 +1573,7 @@
       "name": "ATO_LINE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2121,17 +1581,7 @@
       "name": "AUTO_SELECTED_QUANTITY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2139,17 +1589,7 @@
       "name": "COMPONENT_NUMBER",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2196,17 +1636,7 @@
       "name": "MODEL_GROUP_NUMBER",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2283,17 +1713,7 @@
       "name": "ARRIVAL_SET_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2301,17 +1721,7 @@
       "name": "SHIP_SET_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2319,17 +1729,7 @@
       "name": "SPLIT_FROM_LINE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2369,17 +1769,7 @@
       "name": "ORDERED_ITEM_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2395,17 +1785,7 @@
       "name": "CONFIGURATION_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2413,17 +1793,7 @@
       "name": "COMMITMENT_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2439,17 +1809,7 @@
       "name": "CREDIT_INVOICE_LINE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2499,17 +1859,7 @@
       "name": "PLANNING_PRIORITY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2517,17 +1867,7 @@
       "name": "ORDER_SOURCE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2575,17 +1915,7 @@
       "name": "CUSTOMER_ITEM_NET_PRICE",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2593,17 +1923,7 @@
       "name": "CUSTOMER_PAYMENT_TERM_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2627,17 +1947,7 @@
       "name": "CONFIG_HEADER_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2645,17 +1955,7 @@
       "name": "CONFIG_REV_NBR",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2663,17 +1963,7 @@
       "name": "MFG_COMPONENT_SEQUENCE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2697,17 +1987,7 @@
       "name": "INVOICED_QUANTITY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2715,17 +1995,7 @@
       "name": "REFERENCE_CUSTOMER_TRX_LINE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2741,17 +2011,7 @@
       "name": "LINE_SET_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2775,17 +2035,7 @@
       "name": "SERVICE_DURATION",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2827,17 +2077,7 @@
       "name": "UNIT_LIST_PERCENT",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2845,17 +2085,7 @@
       "name": "UNIT_SELLING_PERCENT",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2863,17 +2093,7 @@
       "name": "UNIT_PERCENT_BASE_PRICE",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -2881,17 +2101,7 @@
       "name": "SERVICE_NUMBER",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3075,17 +2285,7 @@
       "name": "MARKETING_SOURCE_CODE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3101,17 +2301,7 @@
       "name": "SERVICE_REFERENCE_LINE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3119,17 +2309,7 @@
       "name": "SERVICE_REFERENCE_SYSTEM_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3153,17 +2333,7 @@
       "name": "REVENUE_AMOUNT",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3192,17 +2362,7 @@
       "name": "ORDERED_QUANTITY2",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3218,17 +2378,7 @@
       "name": "SHIPPING_QUANTITY2",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3236,17 +2386,7 @@
       "name": "CANCELLED_QUANTITY2",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3254,17 +2394,7 @@
       "name": "SHIPPED_QUANTITY2",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3280,17 +2410,7 @@
       "name": "FULFILLED_QUANTITY2",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3298,17 +2418,7 @@
       "name": "MFG_LEAD_TIME",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3316,17 +2426,7 @@
       "name": "LOCK_CONTROL",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3342,17 +2442,7 @@
       "name": "UNIT_LIST_PRICE_PER_PQTY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3360,17 +2450,7 @@
       "name": "UNIT_SELLING_PRICE_PER_PQTY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3386,17 +2466,7 @@
       "name": "ORIGINAL_INVENTORY_ITEM_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3404,17 +2474,7 @@
       "name": "ORIGINAL_ORDERED_ITEM_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3454,17 +2514,7 @@
       "name": "LATE_DEMAND_PENALTY_FACTOR",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3528,17 +2578,7 @@
       "name": "UNIT_COST",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3546,17 +2586,7 @@
       "name": "ITEM_RELATIONSHIP_TYPE",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3564,17 +2594,7 @@
       "name": "BLANKET_LINE_NUMBER",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3582,17 +2602,7 @@
       "name": "BLANKET_NUMBER",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3600,17 +2610,7 @@
       "name": "BLANKET_VERSION_NUMBER",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3655,17 +2655,7 @@
       "name": "SOURCE_DOCUMENT_VERSION_NUMBER",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3681,17 +2671,7 @@
       "name": "MINISITE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3699,17 +2679,7 @@
       "name": "END_CUSTOMER_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3717,17 +2687,7 @@
       "name": "END_CUSTOMER_CONTACT_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3735,17 +2695,7 @@
       "name": "END_CUSTOMER_SITE_USE_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3777,17 +2727,7 @@
       "name": "RETROBILL_REQUEST_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3795,17 +2735,7 @@
       "name": "ORIGINAL_LIST_PRICE",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3855,17 +2785,7 @@
       "name": "CONTINGENCY_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3881,17 +2801,7 @@
       "name": "REVREC_EXPIRATION_DAYS",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3899,17 +2809,7 @@
       "name": "ACCEPTED_QUANTITY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3917,17 +2817,7 @@
       "name": "ACCEPTED_BY",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
@@ -3996,17 +2886,7 @@
       "name": "EQUIPMENT_ID",
       "type": [
         "null",
-        {
-          "type": "bytes",
-          "scale": 127,
-          "precision": 32,
-          "connect.version": 1,
-          "connect.parameters": {
-            "scale": "127"
-          },
-          "connect.name": "org.apache.kafka.connect.data.Decimal",
-          "logicalType": "decimal"
-        }
+        "double"
       ],
       "default": null
     },
