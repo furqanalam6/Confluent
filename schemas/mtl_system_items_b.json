@@ -1592,7 +1592,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 32,
+          "precision": 64,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
@@ -3115,7 +3115,7 @@
         {
           "type": "bytes",
           "scale": 0,
-          "precision": 32,
+          "precision": 64,
           "connect.version": 1,
           "connect.parameters": {
             "scale": "0"
