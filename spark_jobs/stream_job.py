@@ -177,11 +177,11 @@ joining_result = ooh.join(ool, "HEADER_ID")
 #                         # .join(inv, ool["ORDERED_ITEM"] == inv["SEGMENT1"])
 print("join successfull")
 # joining_result.printSchema()
-print("ready to write on console")
-query = hp \
-    .writeStream \
-    .format("console") \
-    .start().awaitTermination()
+# print("ready to write on console")
+# query = hp \
+#     .writeStream \
+#     .format("console") \
+#     .start().awaitTermination()
 
 # print("start to write")
 
@@ -202,13 +202,13 @@ query = hp \
 #     print("Iteration ")
 #     # intvl+=1
 
-# print("start to write")
-# query = joining_result \
-#             .selectExpr("to_json(struct(*)) AS value") \
-#             .writeStream \
-#             .format("kafka") \
-#             .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
-#             .option("checkpointLocation", "checkpoint-location") \
-#             .option("topic", "complex-query-result") \
-#             .start().awaitTermination() 
+print("start to write")
+query = hp \
+            .selectExpr("to_json(struct(*)) AS value") \
+            .writeStream \
+            .format("kafka") \
+            .option("kafka.bootstrap.servers", "10.92.26.188:29093") \
+            .option("checkpointLocation", "checkpoint-location") \
+            .option("topic", "complex-query-result") \
+            .start().awaitTermination() 
 
