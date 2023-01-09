@@ -203,7 +203,7 @@ print("join successfull")
 #     # intvl+=1
 
 print("start to write")
-query = joining_result \
+query = ool \
             .selectExpr("to_json(struct(*)) AS value") \
             .writeStream \
             .format("kafka") \
